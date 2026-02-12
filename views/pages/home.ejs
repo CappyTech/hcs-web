@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="container">
+      <h1>Welcome</h1>
+      <p>
+        This is a barebones Express + EJS site using a simple
+        Controller / Route / View / Service architecture.
+      </p>
+
+      <section class="card">
+        <h2>Static-site feel</h2>
+        <p>
+          Your CSS lives in <strong>public/css</strong> and your JS lives in
+          <strong>public/js</strong>, just like a normal static website.
+          Express serves those files for you.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Next steps</h2>
+        <ul>
+          <li>Edit the page copy in <strong>views/pages</strong></li>
+          <li>Edit shared layout in <strong>views/partials</strong></li>
+          <li>Update site details in <strong>services/pageService.js</strong></li>
+        </ul>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

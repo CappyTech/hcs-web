@@ -1,0 +1,17 @@
+<% /*
+  views/partials/head.ejs
+
+  This partial is included at the top of every page.
+  It contains common <head> tags:
+  - title
+  - meta tags
+  - CSS link
+*/ %>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title><%= page.title %> - <%= site.name %></title>
+<meta name="description" content="<%= page.description %>" />
+
+<link rel="stylesheet" href="/css/styles.css" />

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="container">
+      <h1>About</h1>
+      <p>
+        This page is rendered with EJS.
+        EJS lets you embed small bits of server data into HTML using
+        <code>&lt;%= ... %&gt;</code>.
+      </p>
+
+      <section class="card">
+        <h2>Where data comes from</h2>
+        <ol>
+          <li>Route: <strong>GET /about</strong> in <strong>routes/index.js</strong></li>
+          <li>Controller: <strong>pageController.about</strong> in <strong>controllers/pageController.js</strong></li>
+          <li>Service: <strong>getAboutViewModel</strong> in <strong>services/pageService.js</strong></li>
+          <li>View: this file (<strong>views/pages/about.ejs</strong>)</li>
+        </ol>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

@@ -6,6 +6,10 @@
  * That separation makes it easier to test the app.
  */
 
+// Loads environment variables from a local .env file into process.env.
+// This must run BEFORE you read process.env.PORT (or any other env var).
+require('dotenv').config();
+
 const { createApp } = require('./app');
 
 const PORT = process.env.PORT || 3000;

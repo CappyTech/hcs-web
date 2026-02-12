@@ -1,0 +1,18 @@
+<% /*
+  views/partials/header.ejs
+
+  Simple site header + navigation.
+  We use page.activeNav to highlight the current link.
+*/ %>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><%= site.name %></a>
+
+    <nav class="nav">
+      <a class="nav-link <%= page.activeNav === '/' ? 'is-active' : '' %>" href="/">Home</a>
+      <a class="nav-link <%= page.activeNav === '/about' ? 'is-active' : '' %>" href="/about">About</a>
+      <a class="nav-link <%= page.activeNav === '/contact' ? 'is-active' : '' %>" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>

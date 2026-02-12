@@ -12,11 +12,16 @@ const path = require('path');
 const express = require('express');
 
 const indexRoutes = require('./routes');
+const appInfoService = require('./services/appInfoService');
 const { notFound } = require('./middleware/notFound');
 const { errorHandler } = require('./middleware/errorHandler');
 
 function createApp() {
   const app = express();
+
+  // App metadata (available in all EJS renders as locals)
+  app.locals.appInfo = appInfoService.getAppInfo();
+  app.locals.appVersion = app.locals.appInfo.version;
 
   // ----- Views (EJS) -----
   // We store our templates in /views.

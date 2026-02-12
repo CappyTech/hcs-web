@@ -1,0 +1,20 @@
+<% /*
+  views/partials/footer.ejs
+
+  Simple footer.
+  The year can be filled by client JS (public/js/site.js) or you can
+  render it server-side if you prefer.
+*/ %>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <small>
+      &copy; <span id="js-start-year"></span><span id="js-year"></span> <%= site.name %>
+      <% if (typeof appInfo !== 'undefined' && appInfo && appInfo.name && appInfo.version) { %>
+        | <%= appInfo.name %> v<%= appInfo.version %>
+      <% } %>
+    </small>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>

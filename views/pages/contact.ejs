@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="container">
+      <h1>Contact</h1>
+      <p>Send us a message using the form below.</p>
+
+      <% if (sent) { %>
+        <div class="notice is-success">
+          Message sent (demo). In a real app you would email/store it.
+        </div>
+      <% } %>
+
+      <% if (error) { %>
+        <div class="notice is-error">
+          <strong>Form error:</strong> <%= error %>
+        </div>
+      <% } %>
+
+      <form class="form" method="POST" action="/contact">
+        <label class="field">
+          <span class="label">Name</span>
+          <input
+            class="input"
+            name="name"
+            type="text"
+            value="<%= form?.name || '' %>"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span class="label">Email</span>
+          <input
+            class="input"
+            name="email"
+            type="email"
+            value="<%= form?.email || '' %>"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span class="label">Message</span>
+          <textarea class="textarea" name="message" rows="6" required><%= form?.message || '' %></textarea>
+        </label>
+
+        <button class="button" type="submit">Send</button>
+      </form>
+
+      <section class="card">
+        <h2>Contact details</h2>
+        <p>
+          Phone: <a href="tel:<%= site.phone %>"><%= site.phone %></a><br />
+          Email: <a href="mailto:<%= site.email %>"><%= site.email %></a>
+        </p>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

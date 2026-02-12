@@ -17,6 +17,9 @@ router.get('/', pageController.home);
 router.get('/about', pageController.about);
 router.get('/contact', pageController.contactGet);
 
+// App info
+router.get('/version', pageController.version);
+
 // Forms
 router.post('/contact', pageController.contactPost);
 

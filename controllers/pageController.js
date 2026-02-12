@@ -13,6 +13,7 @@
  */
 
 const pageService = require('../services/pageService');
+const appInfoService = require('../services/appInfoService');
 
 async function home(req, res, next) {
   try {
@@ -72,9 +73,19 @@ async function contactPost(req, res, next) {
   }
 }
 
+function version(req, res, next) {
+  try {
+    const appInfo = appInfoService.getAppInfo();
+    return res.set('Cache-Control', 'no-store').json(appInfo);
+  } catch (err) {
+    return next(err);
+  }
+}
+
 module.exports = {
   home,
   about,
   contactGet,
   contactPost,
+  version,
 };
