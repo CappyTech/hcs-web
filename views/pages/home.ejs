@@ -1,61 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <%- include('../partials/head') %>
   </head>
-  <body class="flex min-h-screen flex-col bg-white text-gray-900 antialiased">
+  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
 
-    <!-- Coming Soon — full-page hero -->
-    <div class="flex flex-1 flex-col items-center justify-center px-6 py-24 sm:py-32 lg:px-8">
+    <div class="grid min-h-full grid-rows-[1fr_auto]">
 
-      <!-- Logo -->
-      <img
-        src="/images/HCS-Logo-v5.png"
-        alt="<%= site.name %> logo"
-        class="mx-auto h-28 w-auto sm:h-36"
-      />
+      <!-- Main content -->
+      <main class="flex items-center justify-center px-6 lg:px-8">
+        <div class="w-full max-w-md text-center">
 
-      <!-- Headline -->
-      <h1 class="mt-10 text-center text-4xl font-bold tracking-tight text-brand-charcoal sm:text-5xl">
-        Coming Soon
-      </h1>
+          <!-- Logo -->
+          <img
+            src="/images/HCS-Logo-v5.png"
+            alt="<%= site.name %>"
+            class="mx-auto h-24 w-auto sm:h-32"
+          />
 
-      <p class="mx-auto mt-6 max-w-xl text-center text-lg leading-8 text-brand-gray">
-        We're working hard to bring you something great.
-        <span class="font-semibold text-brand-maroon"><%= site.name %></span>
-        will be launching shortly.
-      </p>
+          <!-- Badge -->
+          <div class="mt-8">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-green/10 px-3 py-1 text-xs font-semibold tracking-wide text-brand-green uppercase">
+              <span class="relative flex h-1.5 w-1.5">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-green opacity-75"></span>
+                <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-green"></span>
+              </span>
+              Under Construction
+            </span>
+          </div>
 
-      <!-- Divider accent line -->
-      <div class="mt-10 flex items-center gap-3">
-        <span class="h-px w-12 bg-brand-light"></span>
-        <span class="h-2 w-2 rounded-full bg-brand-green"></span>
-        <span class="h-px w-12 bg-brand-light"></span>
-      </div>
+          <!-- Headline -->
+          <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-brand-charcoal sm:text-5xl">
+            Coming Soon
+          </h1>
 
-      <!-- Contact teaser -->
-      <div class="mt-10 text-center">
-        <p class="text-sm font-medium text-brand-charcoal">In the meantime, get in touch</p>
-        <div class="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
-          <a href="tel:<%= site.phone %>" class="inline-flex items-center gap-2 text-sm text-brand-maroon hover:text-brand-maroon/80">
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-            </svg>
-            <%= site.phone %>
-          </a>
-          <a href="mailto:<%= site.email %>" class="inline-flex items-center gap-2 text-sm text-brand-maroon hover:text-brand-maroon/80">
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-            </svg>
-            <%= site.email %>
-          </a>
+          <p class="mt-4 text-base leading-7 text-gray-500">
+            We're building something great. <br class="hidden sm:block" />
+            <span class="text-brand-maroon font-medium"><%= site.name %></span> will be live shortly.
+          </p>
+
+          <!-- Divider -->
+          <div class="mx-auto mt-8 h-px w-16 bg-gradient-to-r from-transparent via-brand-light to-transparent" aria-hidden="true"></div>
+
+          <!-- Contact -->
+          <div class="mt-8 space-y-3">
+            <a href="tel:<%= site.phone %>" class="flex items-center justify-center gap-2 text-sm text-gray-600 transition hover:text-brand-maroon">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+              <%= site.phone %>
+            </a>
+            <a href="mailto:<%= site.email %>" class="flex items-center justify-center gap-2 text-sm text-gray-600 transition hover:text-brand-maroon">
+              <svg class="h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+              <%= site.email %>
+            </a>
+          </div>
         </div>
-      </div>
+      </main>
 
-      <!-- Footer line -->
-      <p class="mt-16 text-xs text-brand-gray">
+      <!-- Footer -->
+      <footer class="py-6 text-center text-xs text-gray-400">
         &copy; <span id="js-year"></span> <%= site.name %>
-      </p>
+      </footer>
+
     </div>
 
     <script src="/js/site.js" defer></script>
