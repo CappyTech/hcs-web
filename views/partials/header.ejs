@@ -1,18 +1,18 @@
 <% /*
   views/partials/header.ejs
 
-  Simple site header + navigation.
+  Site header + navigation using Tailwind CSS.
   We use page.activeNav to highlight the current link.
 */ %>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="/"><%= site.name %></a>
+<header class="border-b border-gray-200 bg-white">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <a class="text-lg font-bold text-gray-900 no-underline" href="/"><%= site.name %></a>
 
-    <nav class="nav">
-      <a class="nav-link <%= page.activeNav === '/' ? 'is-active' : '' %>" href="/">Home</a>
-      <a class="nav-link <%= page.activeNav === '/about' ? 'is-active' : '' %>" href="/about">About</a>
-      <a class="nav-link <%= page.activeNav === '/contact' ? 'is-active' : '' %>" href="/contact">Contact</a>
+    <nav class="flex flex-wrap gap-1">
+      <a class="rounded-md px-3 py-2 text-sm font-medium <%= page.activeNav === '/' ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700' %>" href="/">Home</a>
+      <a class="rounded-md px-3 py-2 text-sm font-medium <%= page.activeNav === '/about' ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700' %>" href="/about">About</a>
+      <a class="rounded-md px-3 py-2 text-sm font-medium <%= page.activeNav === '/contact' ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700' %>" href="/contact">Contact</a>
     </nav>
   </div>
 </header>

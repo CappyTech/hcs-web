@@ -5,8 +5,10 @@
   "description": "Heron Constructive Solutions LTD Website (Express + EJS)",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "css:build": "npx @tailwindcss/cli -i src/css/main.css -o public/css/styles.css --minify",
+    "css:watch": "npx @tailwindcss/cli -i src/css/main.css -o public/css/styles.css --watch",
+    "start": "npm run css:build && node server.js",
+    "dev": "concurrently \"npm run css:watch\" \"nodemon server.js\""
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -14,6 +16,10 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.9",
+    "tailwindcss": "^4.1.18"
   }
 }

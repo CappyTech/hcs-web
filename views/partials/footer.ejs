@@ -1,14 +1,12 @@
 <% /*
   views/partials/footer.ejs
 
-  Simple footer.
-  The year can be filled by client JS (public/js/site.js) or you can
-  render it server-side if you prefer.
+  Site footer using Tailwind CSS.
 */ %>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <small>
+<footer class="mt-10 border-t border-gray-200 bg-white">
+  <div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+    <small class="text-gray-500">
       &copy; <span id="js-start-year"></span><span id="js-year"></span> <%= site.name %>
       <% if (typeof appInfo !== 'undefined' && appInfo && appInfo.name && appInfo.version) { %>
         | <%= appInfo.name %> v<%= appInfo.version %>

@@ -3,25 +3,27 @@
   <head>
     <%- include('../partials/head') %>
   </head>
-  <body>
+  <body class="min-h-screen bg-white text-gray-900 antialiased">
     <%- include('../partials/header') %>
 
-    <main class="container">
-      <h1>About</h1>
-      <p>
+    <main class="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About</h1>
+      <p class="mt-4 text-lg text-gray-600">
         This page is rendered with EJS.
         EJS lets you embed small bits of server data into HTML using
-        <code>&lt;%= ... %&gt;</code>.
+        <code class="rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-800">&lt;%= ... %&gt;</code>.
       </p>
 
-      <section class="card">
-        <h2>Where data comes from</h2>
-        <ol>
-          <li>Route: <strong>GET /about</strong> in <strong>routes/index.js</strong></li>
-          <li>Controller: <strong>pageController.about</strong> in <strong>controllers/pageController.js</strong></li>
-          <li>Service: <strong>getAboutViewModel</strong> in <strong>services/pageService.js</strong></li>
-          <li>View: this file (<strong>views/pages/about.ejs</strong>)</li>
-        </ol>
+      <section class="mt-8 rounded-xl border border-gray-200 bg-white shadow-sm">
+        <div class="p-6">
+          <h2 class="text-lg font-semibold text-gray-900">Where data comes from</h2>
+          <ol class="mt-3 list-inside list-decimal space-y-2 text-sm text-gray-600">
+            <li>Route: <strong class="font-medium text-gray-900">GET /about</strong> in <strong class="font-medium text-gray-900">routes/index.js</strong></li>
+            <li>Controller: <strong class="font-medium text-gray-900">pageController.about</strong> in <strong class="font-medium text-gray-900">controllers/pageController.js</strong></li>
+            <li>Service: <strong class="font-medium text-gray-900">getAboutViewModel</strong> in <strong class="font-medium text-gray-900">services/pageService.js</strong></li>
+            <li>View: this file (<strong class="font-medium text-gray-900">views/pages/about.ejs</strong>)</li>
+          </ol>
+        </div>
       </section>
     </main>
 

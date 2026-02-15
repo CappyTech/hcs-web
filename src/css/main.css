@@ -1,0 +1,31 @@
+/*
+  src/css/main.css
+
+  Tailwind CSS v4 entry point.
+  The CLI compiles this into public/css/styles.css.
+*/
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  Scan EJS templates + public JS for class usage.
+*/
+@source "../../views/**/*.ejs";
+@source "../../public/js/**/*.js";
+
+/*
+  Custom theme tokens — derived from the HCS logo.
+*/
+@theme {
+  --color-brand-maroon: #8B2332;
+  --color-brand-green: #3D8B37;
+  --color-brand-charcoal: #404040;
+  --color-brand-gray: #808080;
+  --color-brand-light: #C0C0C0;
+
+  --color-primary: #8B2332;
+  --color-accent: #3D8B37;
+  --color-error: #b00020;
+  --color-success: #3D8B37;
+}
