@@ -82,10 +82,48 @@ function version(req, res, next) {
   }
 }
 
+function sitemap(req, res, next) {
+  try {
+    const entries = pageService.getSitemapEntries();
+
+    const urls = entries
+      .map(
+        ({ url, priority, changefreq, lastmod }) => `
+  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`.trimStart()
+      )
+      .join('\n');
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`;
+
+    res.set('Content-Type', 'application/xml').send(xml);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+function robots(req, res, next) {
+  try {
+    const content = pageService.getRobotsContent();
+    res.set('Content-Type', 'text/plain').send(content);
+  } catch (err) {
+    return next(err);
+  }
+}
+
 module.exports = {
   home,
   about,
   contactGet,
   contactPost,
   version,
+  sitemap,
+  robots,
 };

@@ -20,6 +20,12 @@ router.get('/contact', pageController.contactGet);
 // App info
 router.get('/version', pageController.version);
 
+// Sitemap
+router.get('/sitemap.xml', pageController.sitemap);
+
+// Robots
+router.get('/robots.txt', pageController.robots);
+
 // Forms
 router.post('/contact', pageController.contactPost);
 

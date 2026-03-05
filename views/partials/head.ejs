@@ -3,15 +3,92 @@
 
   This partial is included at the top of every page.
   It contains common <head> tags:
-  - title
-  - meta tags
-  - CSS link (Tailwind CSS compiled output)
+  - title, meta, canonical
+  - Mobile / PWA tags
+  - Open Graph (Facebook, LinkedIn, WhatsApp, Slack, Discord, Reddit, Telegram)
+  - Twitter / X Card
+  - Pinterest
+  - Favicons & touch icons
+  - JSON-LD structured data (Google, Bing, Maps)
+  - CSS
 */ %>
 
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<!-- Mobile / PWA -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="<%= site.themeColor %>" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="<%= site.name %>" />
+
+<!-- Primary SEO -->
 <title><%= page.title %> - <%= site.name %></title>
 <meta name="description" content="<%= page.description %>" />
+<meta name="robots" content="<%= site.robots %>" />
+<meta name="author" content="<%= site.name %>" />
+<link rel="canonical" href="<%= typeof canonicalUrl !== 'undefined' ? canonicalUrl : '' %>" />
+
+<!-- Open Graph — Facebook, LinkedIn, WhatsApp, Slack, Discord, Reddit, Telegram -->
+<meta property="og:type" content="<%= site.ogType %>" />
+<meta property="og:locale" content="<%= site.locale %>" />
+<meta property="og:site_name" content="<%= site.name %>" />
+<meta property="og:title" content="<%= page.title %> - <%= site.name %>" />
+<meta property="og:description" content="<%= page.description %>" />
+<meta property="og:url" content="<%= typeof canonicalUrl !== 'undefined' ? canonicalUrl : '' %>" />
+<% if (site.ogImage) { %>
+<meta property="og:image" content="<%= site.ogImage %>" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="<%= page.title %> - <%= site.name %>" />
+<meta property="og:image:type" content="image/png" />
+<% } %>
+<% if (site.facebookAppId) { %>
+<meta property="fb:app_id" content="<%= site.facebookAppId %>" />
+<% } %>
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<%= page.title %> - <%= site.name %>" />
+<meta name="twitter:description" content="<%= page.description %>" />
+<% if (site.twitterHandle) { %>
+<meta name="twitter:site" content="<%= site.url %>" />
+<meta name="twitter:creator" content="<%= site.twitterHandle %>" />
+<% } %>
+<% if (site.ogImage) { %>
+<meta name="twitter:image" content="<%= site.ogImage %>" />
+<meta name="twitter:image:alt" content="<%= page.title %> - <%= site.name %>" />
+<% } %>
+
+<!-- Pinterest -->
+<meta name="pinterest" content="<%= site.pinterest %>" />
+
+<!-- Favicons & touch icons -->
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+<!-- JSON-LD — LocalBusiness structured data (Google, Bing, Maps) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "<%= site.name %>",
+  "url": "<%= typeof canonicalUrl !== 'undefined' ? canonicalUrl : '' %>",
+  "email": "<%= site.email %>",
+  "telephone": "<%= site.liverpool.phone %>",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "<%= site.liverpool.address.line1 %>, <%= site.liverpool.address.line2 %>",
+    "addressLocality": "<%= site.liverpool.address.line3 %>",
+    "addressRegion": "<%= site.liverpool.address.line4 %>",
+    "postalCode": "<%= site.liverpool.address.postcode %>",
+    "addressCountry": "GB"
+  },
+  "description": "<%= page.description %>"
+}
+</script>
 
 <link rel="stylesheet" href="/css/styles.css" />

@@ -10,20 +10,59 @@
  * - Later, you can pull data from a CMS, DB, or APIs without rewriting views.
  */
 
+const appInfoService = require('./appInfoService');
+
+const BASE_URL = process.env.BASE_URL || 'https://heroncs.co.uk';
+
 function getBaseViewModel() {
+  const appInfo = appInfoService.getAppInfo();
   return {
     site: {
       name: 'Heron Constructive Solutions LTD',
-      // Change these when you have real values.
-      phone: '0151 475 1217',
+      url: BASE_URL,
       email: 'info@heroncs.co.uk',
+      // Localisation
+      locale: 'en_GB',
+      // Mobile / PWA
+      themeColor: '#ffffff',
+      // SEO
+      robots: 'index, follow',
+      // Social
+      ogType: 'website',
+      ogImage: `${BASE_URL}/images/og-image.png`,
+      twitterCard: 'summary_large_image',
+      twitterHandle: process.env.TWITTER_HANDLE || '',
+      facebookAppId: process.env.FACEBOOK_APP_ID || '',
+      pinterest: 'nopin',
+      liverpool: {
+        phone: '0151 475 1217',
+        address: {
+          line1: '103 Herondale Road',
+          line2: 'Mossley Hill',
+          line3: 'Liverpool',
+          line4: 'Merseyside',
+          postcode: 'L18 1JZ',
+        },
+      },
+      cheshire: {
+        phone: '01298 333 212',
+        address: {
+          line1: '456 Kingfisher Lane',
+          line2: 'Chester Business Park',
+          line3: 'Chester',
+          line4: 'Cheshire',
+          postcode: 'CH4 9QH',
+        },
+      },
     },
+    appInfo,
   };
 }
 
 async function getHomeViewModel() {
   return {
     ...getBaseViewModel(),
+    canonicalUrl: `${BASE_URL}/`,
     page: {
       title: 'Home',
       activeNav: '/',
@@ -35,6 +74,7 @@ async function getHomeViewModel() {
 async function getAboutViewModel() {
   return {
     ...getBaseViewModel(),
+    canonicalUrl: `${BASE_URL}/about`,
     page: {
       title: 'About',
       activeNav: '/about',
@@ -46,6 +86,7 @@ async function getAboutViewModel() {
 async function getContactViewModel() {
   return {
     ...getBaseViewModel(),
+    canonicalUrl: `${BASE_URL}/contact`,
     page: {
       title: 'Contact',
       activeNav: '/contact',
@@ -112,4 +153,36 @@ module.exports = {
   submitContactForm,
   get404ViewModel,
   getErrorViewModel,
+  getSitemapEntries,
+  getRobotsContent,
 };
+
+// ---------------------------------------------------------------------------
+// SEO utilities
+// ---------------------------------------------------------------------------
+
+// Single source of truth for all public pages.
+// Add a new entry here whenever a new page/route is created.
+const PAGES = [
+  { path: '/',        priority: '1.0', changefreq: 'weekly'  },
+  { path: '/about',   priority: '0.8', changefreq: 'monthly' },
+  { path: '/contact', priority: '0.7', changefreq: 'monthly' },
+];
+
+function getSitemapEntries() {
+  const lastmod = new Date().toISOString().split('T')[0];
+  return PAGES.map(({ path, priority, changefreq }) => ({
+    url: `${BASE_URL}${path}`,
+    priority,
+    changefreq,
+    lastmod,
+  }));
+}
+
+function getRobotsContent() {
+  return [
+    'User-agent: *',
+    'Allow: /',
+    `Sitemap: ${BASE_URL}/sitemap.xml`,
+  ].join('\n');
+}
