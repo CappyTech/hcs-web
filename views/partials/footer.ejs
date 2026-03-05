@@ -5,7 +5,5 @@
 */ %>
 
 <footer class="py-6 text-center text-xs text-gray-400">
-  &copy; <span id="js-start-year"></span>-<span id="js-year"></span> <%= site.name %>. All rights reserved. v<%= appInfo.version %>.
+  &copy; <% var _cy = new Date().getFullYear(); if (site.startYear && site.startYear < _cy) { %><%= site.startYear %> - <% } %><%= _cy %> <%= site.name %>. All rights reserved. v<%= appInfo.version %>.
 </footer>
-
-<script src="/js/site.js" defer></script>

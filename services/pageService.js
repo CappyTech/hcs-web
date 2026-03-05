@@ -27,6 +27,8 @@ function getBaseViewModel() {
       themeColor: '#ffffff',
       // SEO
       robots: 'index, follow',
+      // Branding
+      startYear: parseInt(process.env.START_YEAR, 10) || 2025,
       // Social
       ogType: 'website',
       ogImage: `${BASE_URL}/images/og-image.png`,
@@ -147,6 +149,7 @@ async function getErrorViewModel({ statusCode = 500, message = 'Unknown error' }
 }
 
 module.exports = {
+  getBaseViewModel,
   getHomeViewModel,
   getAboutViewModel,
   getContactViewModel,
@@ -164,9 +167,11 @@ module.exports = {
 // Single source of truth for all public pages.
 // Add a new entry here whenever a new page/route is created.
 const PAGES = [
-  { path: '/',        priority: '1.0', changefreq: 'weekly'  },
-  { path: '/about',   priority: '0.8', changefreq: 'monthly' },
-  { path: '/contact', priority: '0.7', changefreq: 'monthly' },
+  { path: '/',         priority: '1.0', changefreq: 'weekly'  },
+  { path: '/about',    priority: '0.8', changefreq: 'monthly' },
+  { path: '/contact',  priority: '0.7', changefreq: 'monthly' },
+  { path: '/services', priority: '0.8', changefreq: 'monthly' },
+  { path: '/blog',     priority: '0.7', changefreq: 'weekly'  },
 ];
 
 function getSitemapEntries() {

@@ -12,6 +12,8 @@ const path = require('path');
 const express = require('express');
 
 const indexRoutes = require('./routes');
+const contentRoutes = require('./routes/contentRoutes');
+const blogRoutes = require('./routes/blogRoutes');
 const appInfoService = require('./services/appInfoService');
 const { notFound } = require('./middleware/notFound');
 const { errorHandler } = require('./middleware/errorHandler');
@@ -41,6 +43,8 @@ function createApp() {
 
   // ----- Routes -----
   app.use('/', indexRoutes);
+  app.use('/', contentRoutes);
+  app.use('/', blogRoutes);
 
   // ----- 404 + Error handling -----
   app.use(notFound);

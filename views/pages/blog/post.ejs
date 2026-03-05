@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <%- include('../../partials/head') %>
+  </head>
+  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
+
+    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
+
+      <%- include('../../partials/header') %>
+
+      <main class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+
+        <a class="text-sm font-medium text-brand-maroon hover:underline" href="/blog">&larr; Back to Blog</a>
+
+        <article class="mt-6">
+          <header>
+            <div class="flex flex-wrap gap-2">
+              <% post.tags.forEach(function(tag) { %>
+                <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600"><%= tag %></span>
+              <% }); %>
+            </div>
+            <h1 class="mt-4 text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl"><%= post.title %></h1>
+            <p class="mt-2 text-sm text-gray-400">
+              By <span class="font-medium text-gray-600"><%= post.author %></span>
+              &middot;
+              <time datetime="<%= post.publishedAt %>"><%= post.publishedAt %></time>
+            </p>
+          </header>
+
+          <div class="mt-8 prose prose-gray max-w-none text-gray-600">
+            <%- post.content %>
+          </div>
+        </article>
+
+      </main>
+
+      <footer class="py-6 text-center text-xs text-gray-400">
+        &copy; <% var _cy = new Date().getFullYear(); if (site.startYear && site.startYear < _cy) { %><%= site.startYear %> - <% } %><%= _cy %> <%= site.name %>
+      </footer>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <%- include('../../partials/head') %>
+  </head>
+  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
+
+    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
+
+      <%- include('../../partials/header') %>
+
+      <main class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl">Blog</h1>
+        <p class="mt-4 text-base leading-7 text-gray-500">News, insights and updates from <%= site.name %>.</p>
+
+        <% if (posts.length === 0) { %>
+          <p class="mt-10 text-sm text-gray-400">No posts yet — check back soon.</p>
+        <% } else { %>
+          <div class="mt-10 space-y-6">
+            <% posts.forEach(function(post) { %>
+              <article class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <time class="text-xs text-gray-400" datetime="<%= post.publishedAt %>"><%= post.publishedAt %></time>
+                <h2 class="mt-1 text-lg font-semibold text-brand-charcoal">
+                  <a class="hover:text-brand-maroon transition" href="/blog/<%= post.slug %>"><%= post.title %></a>
+                </h2>
+                <p class="mt-2 text-sm text-gray-500"><%= post.excerpt %></p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <% post.tags.forEach(function(tag) { %>
+                    <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600"><%= tag %></span>
+                  <% }); %>
+                </div>
+                <a class="mt-4 inline-block text-sm font-medium text-brand-maroon hover:underline" href="/blog/<%= post.slug %>">
+                  Read more &rarr;
+                </a>
+              </article>
+            <% }); %>
+          </div>
+        <% } %>
+      </main>
+
+      <footer class="py-6 text-center text-xs text-gray-400">
+        &copy; <% var _cy = new Date().getFullYear(); if (site.startYear && site.startYear < _cy) { %><%= site.startYear %> - <% } %><%= _cy %> <%= site.name %>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
