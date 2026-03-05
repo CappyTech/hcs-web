@@ -1,32 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <%- include('../partials/head') %>
   </head>
-  <body class="min-h-screen bg-white text-gray-900 antialiased">
-    <%- include('../partials/header') %>
+  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
 
-    <main class="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About</h1>
-      <p class="mt-4 text-lg text-gray-600">
-        This page is rendered with EJS.
-        EJS lets you embed small bits of server data into HTML using
-        <code class="rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-800">&lt;%= ... %&gt;</code>.
-      </p>
+    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
 
-      <section class="mt-8 rounded-xl border border-gray-200 bg-white shadow-sm">
-        <div class="p-6">
-          <h2 class="text-lg font-semibold text-gray-900">Where data comes from</h2>
-          <ol class="mt-3 list-inside list-decimal space-y-2 text-sm text-gray-600">
-            <li>Route: <strong class="font-medium text-gray-900">GET /about</strong> in <strong class="font-medium text-gray-900">routes/index.js</strong></li>
-            <li>Controller: <strong class="font-medium text-gray-900">pageController.about</strong> in <strong class="font-medium text-gray-900">controllers/pageController.js</strong></li>
-            <li>Service: <strong class="font-medium text-gray-900">getAboutViewModel</strong> in <strong class="font-medium text-gray-900">services/pageService.js</strong></li>
-            <li>View: this file (<strong class="font-medium text-gray-900">views/pages/about.ejs</strong>)</li>
-          </ol>
-        </div>
-      </section>
-    </main>
+      <%- include('../partials/header') %>
 
-    <%- include('../partials/footer') %>
+      <main class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl">About</h1>
+        <p class="mt-4 text-base leading-7 text-gray-500">
+          This page is rendered with EJS.
+          EJS lets you embed small bits of server data into HTML using
+          <code class="rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-700">&lt;%= ... %&gt;</code>.
+        </p>
+
+        <section class="mt-8 rounded-xl border border-gray-200 bg-white shadow-sm">
+          <div class="p-6">
+            <h2 class="text-lg font-semibold text-brand-charcoal">Where data comes from</h2>
+            <ol class="mt-3 list-inside list-decimal space-y-2 text-sm text-gray-500">
+              <li>Route: <strong class="font-medium text-gray-900">GET /about</strong> in <strong class="font-medium text-gray-900">routes/index.js</strong></li>
+              <li>Controller: <strong class="font-medium text-gray-900">pageController.about</strong> in <strong class="font-medium text-gray-900">controllers/pageController.js</strong></li>
+              <li>Service: <strong class="font-medium text-gray-900">getAboutViewModel</strong> in <strong class="font-medium text-gray-900">services/pageService.js</strong></li>
+              <li>View: this file (<strong class="font-medium text-gray-900">views/pages/about.ejs</strong>)</li>
+            </ol>
+          </div>
+        </section>
+      </main>
+
+      <footer class="py-6 text-center text-xs text-gray-400">
+        &copy; <span id="js-year"></span> <%= site.name %>
+      </footer>
+
+    </div>
+
+    <script src="/js/site.js" defer></script>
   </body>
 </html>

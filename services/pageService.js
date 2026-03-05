@@ -15,8 +15,8 @@ function getBaseViewModel() {
     site: {
       name: 'Heron Constructive Solutions LTD',
       // Change these when you have real values.
-      phone: '0000 000 000',
-      email: 'hello@example.com',
+      phone: '0151 475 1217',
+      email: 'info@heroncs.co.uk',
     },
   };
 }
@@ -80,9 +80,36 @@ async function submitContactForm({ name, email, message }) {
   return;
 }
 
+async function get404ViewModel({ path = '' } = {}) {
+  return {
+    ...getBaseViewModel(),
+    page: {
+      title: '404 - Not Found',
+      activeNav: '',
+      description: 'The page you are looking for does not exist.',
+    },
+    requestedPath: path,
+  };
+}
+
+async function getErrorViewModel({ statusCode = 500, message = 'Unknown error' } = {}) {
+  return {
+    ...getBaseViewModel(),
+    page: {
+      title: `Error ${statusCode}`,
+      activeNav: '',
+      description: 'An unexpected error occurred.',
+    },
+    statusCode,
+    message,
+  };
+}
+
 module.exports = {
   getHomeViewModel,
   getAboutViewModel,
   getContactViewModel,
   submitContactForm,
+  get404ViewModel,
+  getErrorViewModel,
 };
