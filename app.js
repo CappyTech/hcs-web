@@ -10,6 +10,7 @@
 
 const path = require('path');
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 
 const indexRoutes = require('./routes');
 const contentRoutes = require('./routes/contentRoutes');
@@ -29,8 +30,10 @@ function createApp() {
   // We store our templates in /views.
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'ejs');
+  app.set('layout', 'layout');
 
   // ----- Middleware -----
+  app.use(expressLayouts);
   // Serve static files (CSS/JS/images) from the /public folder.
   // Example: public/css/styles.css becomes /css/styles.css in the browser.
   app.use(express.static(path.join(__dirname, 'public')));

@@ -1,40 +1,27 @@
-<!doctype html>
-<html lang="en" class="h-full">
-  <head>
-    <%- include('../../partials/head') %>
-  </head>
-  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
+<main class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+  <h1
+    class="text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl"
+  >
+    Our Services
+  </h1>
+  <p class="mt-4 text-base leading-7 text-gray-500">
+    Heron Constructive Solutions LTD provides reliable construction support
+    across Liverpool and Cheshire.
+  </p>
 
-    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
+  <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-semibold text-brand-charcoal">Service One</h2>
+      <p class="mt-2 text-sm text-gray-500">
+        Description of this service. Replace with real content.
+      </p>
+    </section>
 
-      <%- include('../../partials/header') %>
-
-      <main class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl">Our Services</h1>
-        <p class="mt-4 text-base leading-7 text-gray-500">
-          Heron Constructive Solutions LTD provides reliable construction support across Liverpool and Cheshire.
-        </p>
-
-        <div class="mt-10 grid gap-6 sm:grid-cols-2">
-
-          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-semibold text-brand-charcoal">Service One</h2>
-            <p class="mt-2 text-sm text-gray-500">Description of this service. Replace with real content.</p>
-          </section>
-
-          <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-semibold text-brand-charcoal">Service Two</h2>
-            <p class="mt-2 text-sm text-gray-500">Description of this service. Replace with real content.</p>
-          </section>
-
-        </div>
-      </main>
-
-      <footer class="py-6 text-center text-xs text-gray-400">
-        &copy; <% var _cy = new Date().getFullYear(); if (site.startYear && site.startYear < _cy) { %><%= site.startYear %> - <% } %><%= _cy %> <%= site.name %>
-      </footer>
-
-    </div>
-
-  </body>
-</html>
+    <section class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-semibold text-brand-charcoal">Service Two</h2>
+      <p class="mt-2 text-sm text-gray-500">
+        Description of this service. Replace with real content.
+      </p>
+    </section>
+  </div>
+</main>

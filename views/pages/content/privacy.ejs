@@ -1,54 +1,58 @@
-<!doctype html>
-<html lang="en" class="h-full">
-  <head>
-    <%- include('../../partials/head') %>
-  </head>
-  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
+<main class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+  <h1
+    class="text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl"
+  >
+    Privacy Policy
+  </h1>
+  <p class="mt-2 text-sm text-gray-400">Last updated: March 2026</p>
 
-    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
+  <div class="mt-8 space-y-8 text-sm leading-7 text-gray-500">
+    <section>
+      <h2 class="text-base font-semibold text-brand-charcoal">1. Who we are</h2>
+      <p class="mt-2">
+        <%= site.name %>, registered in England and Wales. You can contact us at
+        <a
+          class="text-brand-maroon hover:underline"
+          href="mailto:<%= site.email %>"
+          ><%= site.email %></a
+        >.
+      </p>
+    </section>
 
-      <%- include('../../partials/header') %>
+    <section>
+      <h2 class="text-base font-semibold text-brand-charcoal">
+        2. What data we collect
+      </h2>
+      <p class="mt-2">
+        We only collect information you voluntarily provide via our contact form
+        (name, email address, message).
+      </p>
+    </section>
 
-      <main class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-extrabold tracking-tight text-brand-charcoal sm:text-4xl">Privacy Policy</h1>
-        <p class="mt-2 text-sm text-gray-400">Last updated: March 2026</p>
+    <section>
+      <h2 class="text-base font-semibold text-brand-charcoal">
+        3. How we use your data
+      </h2>
+      <p class="mt-2">
+        Your data is used solely to respond to your enquiry and is never sold or
+        shared with third parties.
+      </p>
+    </section>
 
-        <div class="mt-8 space-y-8 text-sm leading-7 text-gray-500">
-
-          <section>
-            <h2 class="text-base font-semibold text-brand-charcoal">1. Who we are</h2>
-            <p class="mt-2">
-              <%= site.name %>, registered in England and Wales.
-              You can contact us at <a class="text-brand-maroon hover:underline" href="mailto:<%= site.email %>"><%= site.email %></a>.
-            </p>
-          </section>
-
-          <section>
-            <h2 class="text-base font-semibold text-brand-charcoal">2. What data we collect</h2>
-            <p class="mt-2">We only collect information you voluntarily provide via our contact form (name, email address, message).</p>
-          </section>
-
-          <section>
-            <h2 class="text-base font-semibold text-brand-charcoal">3. How we use your data</h2>
-            <p class="mt-2">Your data is used solely to respond to your enquiry and is never sold or shared with third parties.</p>
-          </section>
-
-          <section>
-            <h2 class="text-base font-semibold text-brand-charcoal">4. Your rights</h2>
-            <p class="mt-2">
-              Under UK GDPR you have the right to access, correct, or delete any personal data we hold about you.
-              Contact us at <a class="text-brand-maroon hover:underline" href="mailto:<%= site.email %>"><%= site.email %></a> to make a request.
-            </p>
-          </section>
-
-        </div>
-      </main>
-
-      <footer class="py-6 text-center text-xs text-gray-400">
-        &copy; <% var _cy = new Date().getFullYear(); if (site.startYear && site.startYear < _cy) { %><%= site.startYear %> - <% } %><%= _cy %> <%= site.name %>
-      </footer>
-
-    </div>
-
-  </body>
-</html>
+    <section>
+      <h2 class="text-base font-semibold text-brand-charcoal">
+        4. Your rights
+      </h2>
+      <p class="mt-2">
+        Under UK GDPR you have the right to access, correct, or delete any
+        personal data we hold about you. Contact us at
+        <a
+          class="text-brand-maroon hover:underline"
+          href="mailto:<%= site.email %>"
+          ><%= site.email %></a
+        >
+        to make a request.
+      </p>
+    </section>
+  </div>
+</main>

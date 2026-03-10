@@ -1,15 +1,4 @@
-<!doctype html>
-<html lang="en" class="h-full">
-  <head>
-    <%- include('../../partials/head') %>
-  </head>
-  <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
-
-    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
-
-      <%- include('../../partials/header') %>
-
-      <main class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+<main class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
 
         <a class="text-sm font-medium text-brand-maroon hover:underline" href="/blog">&larr; Back to Blog</a>
 
@@ -35,11 +24,4 @@
 
       </main>
 
-      <footer class="py-6 text-center text-xs text-gray-400">
-        &copy; <% var _cy = new Date().getFullYear(); if (site.startYear && site.startYear < _cy) { %><%= site.startYear %> - <% } %><%= _cy %> <%= site.name %>
-      </footer>
 
-    </div>
-
-  </body>
-</html>
