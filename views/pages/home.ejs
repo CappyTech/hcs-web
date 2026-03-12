@@ -1,18 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= site.name %> - Home</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <%- include('../partials/header') %>
+<style>
 
-    <main class="container mx-auto px-4 py-16">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to <%= site.name %></h1>
-      <p class="text-lg text-gray-600 mb-8">Your one-stop solution for all your needs.</p>
-      <a href="/services" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">Explore Our Services</a>
-    </main>
+.carousel-wrapper {
+  width: 90%;
+  max-width: 900px;
+  margin: 60px auto;
+  position: relative;
+  overflow: hidden;
+}
 
-    <%- include('../partials/footer') %>
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px #f4d603;
+}
+
+/* buttons */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.carousel-btn:hover {
+  background: #000000;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+</style>
+
+
+<div class="carousel-wrapper">
+
+<button class="carousel-btn prev">&#10094;</button>
+
+<div class="carousel-track">
+
+<img src="image1.jpg" alt="Construction project">
+<img src="image2.jpg" alt="Construction project">
+<img src="image3.jpg" alt="Construction project">
+<img src="image4.jpg" alt="Construction project">
+<img src="image5.jpg" alt="Construction project">
+
+</div>
+
+<button class="carousel-btn next">&#10095;</button>
+
+</div>
+
+
+<script>
+
+const track = document.querySelector(".carousel-track");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+
+let index = 0;
+const slides = document.querySelectorAll(".carousel-track img");
+
+function updateCarousel() {
+  track.style.transform = "translateX(-" + index * 100 + "%)";
+}
+
+next.addEventListener("click", () => {
+  index++;
+  if (index >= slides.length) index = 0;
+  updateCarousel();
+});
+
+prev.addEventListener("click", () => {
+  index--;
+  if (index < 0) index = slides.length - 1;
+  updateCarousel();
+});
+
+</script>
+
