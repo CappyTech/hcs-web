@@ -1,68 +1,18 @@
-<div class="py-12">
-  
-  <div class="relative mx-auto max-w-7xl px-4 bg-white mb-20" id="carouselWrapper">
-    <!-- Images Container - Coverflow style -->
-    <div class="relative py-20" style="height:600px; perspective:1200px; overflow:hidden;">
-      <!-- each .cover-item will be transformed via script -->
-      <div class="cover-item absolute top-1/2 left-1/2 w-64 h-80 overflow-hidden transition-all duration-500 rounded-lg shadow-lg" data-src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=500&fit=crop"></div>
-      <div class="cover-item absolute top-1/2 left-1/2 w-64 h-80 overflow-hidden transition-all duration-500 rounded-lg shadow-lg" data-src="https://images.unsplash.com/photo-1590845947670-c009801ffa74?w=400&h=500&fit=crop"></div>
-      <div class="cover-item absolute top-1/2 left-1/2 w-64 h-80 overflow-hidden transition-all duration-500 rounded-lg shadow-lg" data-src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=500&fit=crop"></div>
-      <div class="cover-item absolute top-1/2 left-1/2 w-64 h-80 overflow-hidden transition-all duration-500 rounded-lg shadow-lg" data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop"></div>
-      <div class="cover-item absolute top-1/2 left-1/2 w-64 h-80 overflow-hidden transition-all duration-500 rounded-lg shadow-lg" data-src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=500&fit=crop"></div>
-      <div class="cover-item absolute top-1/2 left-1/2 w-64 h-80 overflow-hidden transition-all duration-500 rounded-lg shadow-lg" data-src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=400&h=500&fit=crop"></div>
-    </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= site.name %> - Home</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
 
-  
+    <main class="container mx-auto px-4 py-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to <%= site.name %></h1>
+      <p class="text-lg text-gray-600 mb-8">Your one-stop solution for all your needs.</p>
+      <a href="/services" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition">Explore Our Services</a>
+    </main>
 
-  <script>
-    // refined coverflow carousel matching reference
-    const items = document.querySelectorAll('.cover-item');
-    let center = 2;
-
-    items.forEach(el => {
-      const img = document.createElement('img');
-      img.src = el.dataset.src;
-      img.alt = 'Construction work';
-      img.className = 'w-full h-full object-cover';
-      el.appendChild(img);
-    });
-
-    function updateTransforms() {
-      items.forEach((el, idx) => {
-        const offset = idx - center;
-        const baseX = offset * 160; // even wider spacing
-        const z = -Math.abs(offset) * 20; // very minimal pushback
-        const rotate = offset * 10; // even gentler angle
-        const scale = offset === 0 ? 1.7 : 1 - Math.abs(offset) * 0.05; // sides closer in size
-        el.style.transform = `translate(-50%, -50%) translateX(${baseX}px) translateZ(${z}px) scale(${scale}) rotateY(${rotate}deg)`;
-        el.style.zIndex = 100 - Math.abs(offset);
-        el.style.opacity = offset === 0 ? '1' : '0.95';
-      });
-    }
-
-    updateTransforms();
-    setInterval(() => {
-      center = (center + 1) % items.length;
-      updateTransforms();
-    }, 5000);
-  </script>
-
-  <!-- Features Section -->
-  <!-- spacer added to ensure carousel doesn't overlap -->
-  <div class="h-32"></div>
-  <div class="mt-20 grid grid-cols-1 gap-8 md:grid-cols-3 max-w-5xl mx-auto px-4">
-    <div class="rounded-lg bg-gray-50 p-6 text-center">
-      <h3 class="text-lg font-semibold text-brand-charcoal mb-2">Professional</h3>
-      <p class="text-gray-600">Expert construction services with years of experience.</p>
-    </div>
-    <div class="rounded-lg bg-gray-50 p-6 text-center">
-      <h3 class="text-lg font-semibold text-brand-charcoal mb-2">Reliable</h3>
-      <p class="text-gray-600">On-time delivery and quality workmanship guaranteed.</p>
-    </div>
-    <div class="rounded-lg bg-gray-50 p-6 text-center">
-      <h3 class="text-lg font-semibold text-brand-charcoal mb-2">Trusted</h3>
-      <p class="text-gray-600">Serving Liverpool and Cheshire with dedication.</p>
-    </div>
-  </div>
-</div>
+    <%- include('../partials/footer') %>
