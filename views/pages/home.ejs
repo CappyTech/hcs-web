@@ -1,91 +1,50 @@
 <div class="container">
 
-    <div class="carousel" id="carousel">
-        <div class="card" style="background-image:url('https://source.unsplash.com/400x600/?mountain,snow');">
-            <div class="card-content">
-                <h3>Tarmac</h3>
-            </div>
+    <div class="carousel-wrapper">
+        <button class="nav left" onclick="move(-1)">❮</button>
+
+        <div class="carousel" id="carousel">
+            <div class="card" style="background-image:url('c:\Users\admin\Pictures\work\arcaion-pavement-1696507_1920.jpg')"></div>
+            <div class="card" style="background-image:url('c:\Users\admin\Pictures\work\holgersfotografie-garden-fence-326616_1920.jpg')"></div>
+            <div class="card" style="background-image:url('c:\Users\admin\Pictures\work\mac231-leaf-4470075_1920.jpg')"></div>
+            <div class="card" style="background-image:url('c:\Users\admin\Downloads\pexels-nicomarinb-35016102.jpg')"></div>
+            <div class="card" style="background-image:url('https://source.unsplash.com/404x600/?forest,snow')"></div>
         </div>
 
-        <div class="card" style="background-image:url('https://source.unsplash.com/401x600/?ski,resort');">
-            <div class="card-content">
-                <h3>line making</h3>
-            </div>
-        </div>
-
-        <div class="card active" style="background-image:url('https://source.unsplash.com/402x600/?winter,village');">
-            <div class="card-content">
-                <h3>paving</h3>
-            </div>
-        </div>
-
-        <div class="card" style="background-image:url('https://source.unsplash.com/403x600/?snow,city');">
-            <div class="card-content">
-                <h3>Fencing</h3>
-            </div>
-        </div>
-        <div class="card" style="background-image:url('https://source.unsplash.com/404x600/?snow,forest');">
-            <div class="card-content">
-                <h3>Groundworks</h3>
-            </div>
-        </div>
-         <div class="card" style="background-image:url('https://source.unsplash.com/405x600/?snow,road');">
-            <div class="card-content">
-                <h3>Driveways</h3>
-            </div>
-        </div>
-         <div class="card" style="background-image:url('https://source.unsplash.com/406x600/?snow,city');">
-            <div class="card-content">
-                <h3>Landscaping</h3>
-            </div>
-        </div>
-        <div class="card" style="background-image:url('https://source.unsplash.com/403x600/?snow,city');">
-            <div class="card-content">
-                <h3>Fencing</h3>
-            </div>
-        </div>
+        <button class="nav right" onclick="move(1)">❯</button>
     </div>
+
 </div>
 
 <style>
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     margin: auto;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
 }
 
-body {
-    background: #111;
-}
+body { background: #8a8a8a; }
 
 .carousel-wrapper {
     position: relative;
-}
-
-h2 {
-    margin-bottom: 20px;
-    opacity: 0.8;
+    overflow: hidden;
 }
 
 .carousel {
     display: flex;
-    overflow: hidden;
     gap: 20px;
-    padding: 20px;
+    padding: 40px 0;
+    transition: transform 0.5s ease;
 }
 
 .card {
-    flex: 0 0 200px;
-    height: 300px;
+    flex: 0 0 220px;
+    height: 320px;
     border-radius: 20px;
     background-size: cover;
     background-position: center;
-    position: relative;
-    transition: transform 0.4s ease, opacity 0.4s ease;
     opacity: 0.6;
+    transition: transform 0.4s, opacity 0.4s;
 }
 
 .card.active {
@@ -93,72 +52,82 @@ h2 {
     opacity: 1;
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    border-radius: 20px;
-}
-
-.card-content {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    z-index: 2;
-}
-
 .nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.6);
     border: none;
     color: white;
-    font-size: 24px;
-    padding: 10px;
+    font-size: 26px;
+    padding: 12px;
     cursor: pointer;
     border-radius: 50%;
     z-index: 10;
 }
 
-.nav.left { left: 0; }
-.nav.right { right: 0; }
-
-.nav:hover {
-    background: rgba(255,255,255,0.4);
-}
+.nav.left { left: 10px; }
+.nav.right { right: 10px; }
 </style>
 
 <script>
 const carousel = document.getElementById('carousel');
+
+// duplicate for infinite loop
+carousel.innerHTML =
+    carousel.innerHTML +
+    carousel.innerHTML +
+    carousel.innerHTML;
+
 const cards = document.querySelectorAll('.card');
 
-let index = 2; // start centered
+const total = cards.length;
+const visibleSet = total / 3;
 
-function updateActive() {
+let index = visibleSet;
+
+const cardWidth = 240;
+
+function update() {
     cards.forEach((card, i) => {
         card.classList.toggle('active', i === index);
     });
 
-    const offset = (cards[0].offsetWidth + 20) * index;
-    carousel.style.transform = `translateX(calc(50% - ${offset}px - 100px))`;
+    const containerWidth = carousel.parentElement.offsetWidth;
+    const offset = containerWidth / 2 - cardWidth / 2;
+
+    carousel.style.transform =
+        `translateX(${offset - index * cardWidth}px)`;
 }
 
-function scrollCarousel(direction) {
-    index += direction;
-
-    if (index < 0) index = cards.length - 1;
-    if (index >= cards.length) index = 0;
-
-    updateActive();
+function move(dir) {
+    index += dir;
+    update();
 }
 
-// Auto slide every 3 seconds
+carousel.addEventListener('transitionend', () => {
+    if (index >= visibleSet * 2) {
+        carousel.style.transition = 'none';
+        index = visibleSet;
+        update();
+        requestAnimationFrame(() => {
+            carousel.style.transition = 'transform 0.5s ease';
+        });
+    }
+
+    if (index < visibleSet) {
+        carousel.style.transition = 'none';
+        index = visibleSet * 2 - 1;
+        update();
+        requestAnimationFrame(() => {
+            carousel.style.transition = 'transform 0.5s ease';
+        });
+    }
+});
+
 setInterval(() => {
-    scrollCarousel(1);
+    move(1);
 }, 3000);
 
-// Initial position
-updateActive();
+update();
 </script>
