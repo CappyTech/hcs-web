@@ -4,10 +4,10 @@
         <button class="nav left" onclick="move(-1)">❮</button>
 
         <div class="carousel" id="carousel">
-            <div class="card" style="background-image:url('c:\Users\admin\Pictures\work\arcaion-pavement-1696507_1920.jpg')"></div>
-            <div class="card" style="background-image:url('c:\Users\admin\Pictures\work\holgersfotografie-garden-fence-326616_1920.jpg')"></div>
-            <div class="card" style="background-image:url('c:\Users\admin\Pictures\work\mac231-leaf-4470075_1920.jpg')"></div>
-            <div class="card" style="background-image:url('c:\Users\admin\Downloads\pexels-nicomarinb-35016102.jpg')"></div>
+            <div class="card" style="background-image:url('arcaion-pavement-1696507_1920.jpg')"></div>
+            <div class="card" style="background-image:url('holgersfotografie-garden-fence-326616_1920.jpg')"></div>
+            <div class="card" style="background-image:url('mac231-leaf-4470075_1920.jpg')"></div>
+            <div class="card" style="background-image:url('pexels-nicomarinb-35016102.jpg')"></div>
             <div class="card" style="background-image:url('https://source.unsplash.com/404x600/?forest,snow')"></div>
         </div>
 
@@ -19,24 +19,31 @@
 <style>
 .container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
 }
 
-body { background: #8a8a8a; }
+body {
+    background: #111;
+}
 
+/* FULL HEIGHT AREA FOR BUTTONS */
 .carousel-wrapper {
     position: relative;
     overflow: hidden;
+    height: 400px;
+    display: flex;
+    align-items: center;
 }
 
+/* CENTER TRACK */
 .carousel {
     display: flex;
     gap: 20px;
-    padding: 40px 0;
     transition: transform 0.5s ease;
 }
 
+/* CARDS */
 .card {
     flex: 0 0 220px;
     height: 320px;
@@ -52,22 +59,33 @@ body { background: #8a8a8a; }
     opacity: 1;
 }
 
+/* BUTTONS FIXED TO SIDES */
 .nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
+    width: 50px;
+    height: 50px;
+    background: rgba(128, 128, 128, 0.6);
     border: none;
     color: white;
     font-size: 26px;
-    padding: 12px;
     cursor: pointer;
     border-radius: 50%;
-    z-index: 10;
+    z-index: 20;
 }
 
-.nav.left { left: 10px; }
-.nav.right { right: 10px; }
+.nav.left {
+    left: 0;
+}
+
+.nav.right {
+    right: 0;
+}
+
+.nav:hover {
+    background: rgba(255,255,255,0.3);
+}
 </style>
 
 <script>
@@ -125,6 +143,7 @@ carousel.addEventListener('transitionend', () => {
     }
 });
 
+// auto slide
 setInterval(() => {
     move(1);
 }, 3000);
