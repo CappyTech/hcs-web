@@ -80,6 +80,8 @@
     --color-brand-maroon: #8B2332;
     --color-brand-charcoal: #404040;
     --color-brand-light: #C0C0C0;
+    --color-primary: #8B2332;
+    --color-accent: #3D8B37;
   }
 }
 @layer base {
@@ -921,11 +923,26 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-32 {
+    height: calc(var(--spacing) * 32);
+  }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-50 {
+    height: calc(var(--spacing) * 50);
+  }
   .h-64 {
     height: calc(var(--spacing) * 64);
   }
   .h-96 {
     height: calc(var(--spacing) * 96);
+  }
+  .h-128 {
+    height: calc(var(--spacing) * 128);
   }
   .h-160 {
     height: calc(var(--spacing) * 160);
@@ -935,6 +952,9 @@
   }
   .h-256 {
     height: calc(var(--spacing) * 256);
+  }
+  .h-945 {
+    height: calc(var(--spacing) * 945);
   }
   .h-full {
     height: 100%;
@@ -1287,6 +1307,12 @@
   .border-b-2 {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
+  }
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+  .border-brand-maroon {
+    border-color: var(--color-brand-maroon);
   }
   .border-gray-200 {
     border-color: var(--color-gray-200);
@@ -1745,6 +1771,9 @@
   .text-indigo-600 {
     color: var(--color-indigo-600);
   }
+  .text-primary {
+    color: var(--color-primary);
+  }
   .text-white {
     color: var(--color-white);
   }
@@ -1939,6 +1968,20 @@
       background-color: transparent;
     }
   }
+  .hover\:border-accent {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-accent);
+      }
+    }
+  }
+  .hover\:border-brand-maroon {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-brand-maroon);
+      }
+    }
+  }
   .hover\:border-gray-300 {
     &:hover {
       @media (hover: hover) {
@@ -2016,6 +2059,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-indigo-500);
+      }
+    }
+  }
+  .hover\:text-primary {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-primary);
       }
     }
   }
