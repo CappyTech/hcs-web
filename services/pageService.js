@@ -34,6 +34,9 @@ function getBaseViewModel() {
       ogImage: `${BASE_URL}/images/og-image.png`,
       twitterCard: 'summary_large_image',
       twitterHandle: process.env.TWITTER_HANDLE || '',
+      instagramHandle: process.env.INSTAGRAM_HANDLE || '',
+      facebookHHandle: process.env.FACEBOOK_HANDLE || '',
+      linkedinHandle: process.env.LINKEDIN_HANDLE || '',
       facebookAppId: process.env.FACEBOOK_APP_ID || '',
       pinterest: 'nopin',
       liverpool: {
