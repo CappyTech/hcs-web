@@ -13,7 +13,6 @@
     --color-indigo-400: oklch(67.3% 0.182 276.935);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-indigo-600: oklch(51.1% 0.262 276.966);
-    --color-indigo-700: oklch(45.7% 0.24 277.023);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
@@ -68,10 +67,7 @@
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --blur-xl: 24px;
     --blur-3xl: 64px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -812,9 +808,6 @@
   .-mb-6 {
     margin-bottom: calc(var(--spacing) * -6);
   }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
-  }
   .-ml-0 {
     margin-left: calc(var(--spacing) * -0);
   }
@@ -917,17 +910,8 @@
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
-  .h-9 {
-    height: calc(var(--spacing) * 9);
-  }
   .h-10 {
     height: calc(var(--spacing) * 10);
-  }
-  .h-16 {
-    height: calc(var(--spacing) * 16);
-  }
-  .h-32 {
-    height: calc(var(--spacing) * 32);
   }
   .h-40 {
     height: calc(var(--spacing) * 40);
@@ -941,9 +925,6 @@
   .h-96 {
     height: calc(var(--spacing) * 96);
   }
-  .h-128 {
-    height: calc(var(--spacing) * 128);
-  }
   .h-160 {
     height: calc(var(--spacing) * 160);
   }
@@ -952,9 +933,6 @@
   }
   .h-256 {
     height: calc(var(--spacing) * 256);
-  }
-  .h-945 {
-    height: calc(var(--spacing) * 945);
   }
   .h-full {
     height: 100%;
@@ -1308,11 +1286,17 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
   }
+  .border-\[\#3D8B37\] {
+    border-color: #3D8B37;
+  }
+  .border-\[\#8B2332\] {
+    border-color: #8B2332;
+  }
   .border-accent {
     border-color: var(--color-accent);
   }
-  .border-brand-maroon {
-    border-color: var(--color-brand-maroon);
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
   }
   .border-gray-200 {
     border-color: var(--color-gray-200);
@@ -1328,18 +1312,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-gray-900) 10%, transparent);
     }
-  }
-  .border-indigo-100 {
-    border-color: var(--color-indigo-100);
-  }
-  .border-indigo-200 {
-    border-color: var(--color-indigo-200);
-  }
-  .border-indigo-300 {
-    border-color: var(--color-indigo-300);
-  }
-  .border-indigo-600 {
-    border-color: var(--color-indigo-600);
   }
   .border-transparent {
     border-color: transparent;
@@ -1624,6 +1596,9 @@
   .pt-80 {
     padding-top: calc(var(--spacing) * 80);
   }
+  .pb-1 {
+    padding-bottom: calc(var(--spacing) * 1);
+  }
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
   }
@@ -1743,6 +1718,9 @@
   }
   .text-wrap {
     text-wrap: wrap;
+  }
+  .text-\[\#8B2332\] {
+    color: #8B2332;
   }
   .text-brand-charcoal {
     color: var(--color-brand-charcoal);
@@ -1968,31 +1946,17 @@
       background-color: transparent;
     }
   }
+  .hover\:border-\[\#3D8B37\] {
+    &:hover {
+      @media (hover: hover) {
+        border-color: #3D8B37;
+      }
+    }
+  }
   .hover\:border-accent {
     &:hover {
       @media (hover: hover) {
         border-color: var(--color-accent);
-      }
-    }
-  }
-  .hover\:border-brand-maroon {
-    &:hover {
-      @media (hover: hover) {
-        border-color: var(--color-brand-maroon);
-      }
-    }
-  }
-  .hover\:border-gray-300 {
-    &:hover {
-      @media (hover: hover) {
-        border-color: var(--color-gray-300);
-      }
-    }
-  }
-  .hover\:border-indigo-300 {
-    &:hover {
-      @media (hover: hover) {
-        border-color: var(--color-indigo-300);
       }
     }
   }
@@ -2027,17 +1991,24 @@
       }
     }
   }
+  .hover\:text-\[\#3D8B37\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #3D8B37;
+      }
+    }
+  }
+  .hover\:text-\[\#8B2332\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #8B2332;
+      }
+    }
+  }
   .hover\:text-brand-maroon {
     &:hover {
       @media (hover: hover) {
         color: var(--color-brand-maroon);
-      }
-    }
-  }
-  .hover\:text-gray-700 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-gray-700);
       }
     }
   }
