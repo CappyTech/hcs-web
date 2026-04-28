@@ -1,5 +1,15 @@
-<div id="carousel" class="relative w-11/12 max-w-7xl mx-auto overflow-hidden rounded-lg shadow-lg">
-  <div id="carousel-inner" class="flex transition-transform duration-500 ease-in-out">
+<div class="relative isolate overflow-hidden bg-gradient-to-br from-slate-100 via-sky-200/80 to-#C0C0C0-100 min-h-screen">
+  <div aria-hidden="true" class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -left-44 top-0 h-96 w-96 rounded-full bg-#8B2332-600 opacity-40 blur-3xl"></div>
+    <div class="absolute right-0 top-16 h-96 w-96 rounded-full bg-#3D8B37-600 opacity-35 blur-3xl"></div>
+    <div class="absolute left-1/2 top-72 h-80 w-80 -translate-x-1/2 rounded-full bg-#C0C0C0-600 opacity-30 blur-3xl"></div>
+    <div class="absolute left-0 top-[32rem] h-96 w-96 rounded-full bg-amber-300 opacity-25 blur-3xl"></div>
+    <div class="absolute right-[-10%] top-[40rem] h-72 w-72 rounded-full bg-fuchsia-300 opacity-20 blur-3xl"></div>
+    <div class="absolute inset-x-1/4 bottom-0 h-72 w-72 rounded-full bg-sky-300 opacity-25 blur-3xl"></div>
+  </div>
+
+  <div id="carousel" class="relative w-11/12 max-w-7xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div id="carousel-inner" class="flex transition-transform duration-500 ease-in-out">
     <div class="carousel-slide flex-shrink-0 w-full">
       <img class="w-full h-192 object-cover" src="/images/holgersfotografie-garden-fence-326616_1920.jpg" alt="First slide">
     </div>
@@ -61,7 +71,9 @@
 
 
    <!-- Category section -->
-    <section aria-labelledby="category-heading" class="bg-gray-50">
+    <section aria-labelledby="category-heading" class="relative isolate overflow-hidden rounded-[2rem] bg-sky-100/30 backdrop-blur-xl">
+      <div aria-hidden="true" class="absolute inset-x-0 top-0 -z-10 h-80 bg-gradient-to-b from-sky-200/50 via-transparent to-transparent blur-3xl"></div>
+      <div aria-hidden="true" class="absolute left-0 top-1/2 -z-10 h-72 w-72 rounded-full bg-fuchsia-200 opacity-20 blur-3xl"></div>
       <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div class="sm:flex sm:items-baseline sm:justify-between">
           <h2 id="category-heading" class="text-2xl font-bold tracking-tight text-gray-900">Shop by Category</h2>
@@ -135,11 +147,144 @@
 
 
 
+<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+<div class="relative isolate overflow-hidden rounded-[2rem] bg-sky-100/30 backdrop-blur-xl">
+  <div aria-hidden="true" class="absolute left-1/2 top-0 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-300 opacity-25 blur-3xl"></div>
+  <div aria-hidden="true" class="absolute right-0 top-32 -z-10 h-64 w-64 rounded-full bg-pink-300 opacity-25 blur-3xl"></div>
+  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Frequently asked questions</h2>
+      <dl class="mt-16 divide-y divide-gray-900/10">
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-0" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="text-base/7 font-semibold">What&#039;s the best thing about Switzerland?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-0" class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-1" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="text-base/7 font-semibold">How do you make holy water?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-1" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-2" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="text-base/7 font-semibold">What do you call someone with no body and no nose?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-2" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-3" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="text-base/7 font-semibold">Why do you never see elephants hiding in trees?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-3" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-4" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="text-base/7 font-semibold">Why can&#039;t you hear a pterodactyl go to the bathroom?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-4" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-5" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="text-base/7 font-semibold">Why did the invisible man turn down the job offer?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-5" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
 
 
 
 
-<div class="relative isolate bg-white pt-24 pb-32 sm:pt-32 dark:bg-gray-900">
+<div class="relative isolate bg-slate-100/30 backdrop-blur-xl rounded-[2rem] pt-24 pb-32 sm:pt-32">
   <div aria-hidden="true" class="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl">
     <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="ml-[max(50%,38rem)] aspect-1313/771 w-328.25 bg-linear-to-tr from-[#ff80b5] to-[#9089fc]"></div>
   </div>
@@ -148,85 +293,84 @@
   </div>
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Testimonials</h2>
-      <p class="mt-2 text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl dark:text-white">We have worked with thousands of amazing people</p>
+      <h2 class="text-base/7 font-semibold text-indigo-600 text-indigo-600">Testimonials</h2>
+      <p class="mt-2 text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">We have worked with thousands of amazing people</p>
     </div>
-    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 dark:text-gray-100">
-      <figure class="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-        <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12 sm:text-xl/8 dark:text-white">
+    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
+      <figure class="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1">
+        <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12 sm:text-xl/8">
           <p>“Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.”</p>
         </blockquote>
-        <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap dark:border-white/10">
+        <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap ">
           <img src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80" alt="" class="size-10 flex-none rounded-full bg-gray-50 dark:bg-gray-700" />
           <div class="flex-auto">
-            <div class="font-semibold text-gray-900 dark:text-white">Brenna Goyette</div>
-            <div class="text-gray-600 dark:text-gray-400">@brennagoyette</div>
+            <div class="font-semibold text-gray-900">Brenna Goyette</div>
+            <div class="text-gray-600">@brennagoyette</div>
           </div>
-          <img src="https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg" alt="" class="h-10 w-auto flex-none dark:hidden" />
-          <img src="https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-100.svg" alt="" class="h-10 w-auto flex-none not-dark:hidden" />
+          <img src="https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg" alt="SavvyCal" class="h-10 w-auto flex-none" />
         </figcaption>
       </figure>
       <div class="space-y-8 xl:contents xl:space-y-0">
         <div class="space-y-8 xl:row-span-2">
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Leslie Alexander</div>
-                <div class="text-gray-600 dark:text-gray-400">@lesliealexander</div>
+                <div class="font-semibold text-gray-900">Leslie Alexander</div>
+                <div class="text-gray-600">@lesliealexander</div>
               </div>
             </figcaption>
           </figure>
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Quia dolorem qui et. Atque quo aliquid sit eos officia. Dolores similique laboriosam quaerat cupiditate.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Michael Foster</div>
-                <div class="text-gray-600 dark:text-gray-400">@michaelfoster</div>
+                <div class="font-semibold text-gray-900">Michael Foster</div>
+                <div class="text-gray-600">@michaelfoster</div>
               </div>
             </figcaption>
           </figure>
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Consequatur ut atque. Itaque nostrum molestiae id veniam eos cumque. Ut quia eum fugit laborum autem inventore ut voluptate.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Dries Vincent</div>
-                <div class="text-gray-600 dark:text-gray-400">@driesvincent</div>
+                <div class="font-semibold text-gray-900">Dries Vincent</div>
+                <div class="text-gray-600">@driesvincent</div>
               </div>
             </figcaption>
           </figure>
         </div>
         <div class="space-y-8 xl:row-start-1">
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Aut reprehenderit voluptatem eum asperiores beatae id. Iure molestiae ipsam ut officia rem nulla blanditiis.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Lindsay Walton</div>
-                <div class="text-gray-600 dark:text-gray-400">@lindsaywalton</div>
+                <div class="font-semibold text-gray-900 ">Lindsay Walton</div>
+                <div class="text-gray-600 text-gray-600">@lindsaywalton</div>
               </div>
             </figcaption>
           </figure>
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Nam nesciunt dolorem dolor asperiores cum. Incidunt molestiae quis deleniti vitae ut in earum delectus iusto.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Courtney Henry</div>
-                <div class="text-gray-600 dark:text-gray-400">@courtneyhenry</div>
+                <div class="font-semibold text-gray-900 ">Courtney Henry</div>
+                <div class="text-gray-600 text-gray-600">@courtneyhenry</div>
               </div>
             </figcaption>
           </figure>
@@ -234,65 +378,65 @@
       </div>
       <div class="space-y-8 xl:contents xl:space-y-0">
         <div class="space-y-8 xl:row-start-1">
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Voluptas quos itaque ipsam in voluptatem est. Iste eos blanditiis repudiandae. Earum deserunt enim molestiae ipsum perferendis recusandae saepe corrupti.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Tom Cook</div>
-                <div class="text-gray-600 dark:text-gray-400">@tomcook</div>
+                <div class="font-semibold text-gray-900 ">Tom Cook</div>
+                <div class="text-gray-600 text-gray-600">@tomcook</div>
               </div>
             </figcaption>
           </figure>
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Aliquid dolore praesentium ratione. Cumque ea officia repellendus laboriosam. Vitae quod id explicabo non sunt.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Whitney Francis</div>
-                <div class="text-gray-600 dark:text-gray-400">@whitneyfrancis</div>
+                <div class="font-semibold text-gray-900 ">Whitney Francis</div>
+                <div class="text-gray-600 text-gray-600">@whitneyfrancis</div>
               </div>
             </figcaption>
           </figure>
         </div>
         <div class="space-y-8 xl:row-span-2">
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Molestias ea earum quos nostrum doloremque sed. Quaerat quasi aut velit incidunt excepturi rerum voluptatem minus harum.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Leonard Krasner</div>
-                <div class="text-gray-600 dark:text-gray-400">@leonardkrasner</div>
+                <div class="font-semibold text-gray-900 ">Leonard Krasner</div>
+                <div class="text-gray-600 text-gray-600">@leonardkrasner</div>
               </div>
             </figcaption>
           </figure>
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Architecto libero natus est. Est quam debitis officia enim atque et ut non. Sunt reiciendis quasi eaque. Itaque error ut et.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Floyd Miles</div>
-                <div class="text-gray-600 dark:text-gray-400">@floydmiles</div>
+                <div class="font-semibold text-gray-900 ">Floyd Miles</div>
+                <div class="text-gray-600 text-gray-600">@floydmiles</div>
               </div>
             </figcaption>
           </figure>
-          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <blockquote class="text-gray-900 dark:text-white">
+          <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 ">
+            <blockquote class="text-gray-900 ">
               <p>“Temporibus ea molestiae impedit adipisci perspiciatis illo aliquid. Quis ut ratione et voluptatem et. Nostrum explicabo iste unde beatae.”</p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
               <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Emily Selman</div>
-                <div class="text-gray-600 dark:text-gray-400">@emilyselman</div>
+                <div class="font-semibold text-gray-900 ">Emily Selman</div>
+                <div class="text-gray-600 text-gray-600">@emilyselman</div>
               </div>
             </figcaption>
           </figure>
@@ -300,4 +444,25 @@
       </div>
     </div>
   </div>
+</div>
+
+
+
+<div class="relative isolate py-24 sm:py-32 overflow-hidden bg-sky-100/30 backdrop-blur-xl rounded-[2rem]">
+  <div aria-hidden="true" class="absolute inset-0 -z-10">
+    <div class="absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-pink-300 opacity-30 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute right-10 top-20 h-56 w-56 rounded-full bg-indigo-300 opacity-25 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute left-10 bottom-10 h-72 w-72 rounded-full bg-cyan-300 opacity-20 blur-3xl"></div>
+  </div>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <h2 class="text-center text-lg/8 font-semibold text-gray-900">Trusted by the world’s most innovative teams</h2>
+    <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+      <img width="158" height="48" src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
+      <img width="158" height="48" src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
+      <img width="158" height="48" src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
+      <img width="158" height="48" src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" />
+      <img width="158" height="48" src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" />
+    </div>
+  </div>
+</div>
 </div>
