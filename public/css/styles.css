@@ -959,6 +959,9 @@
   .h-50 {
     height: calc(var(--spacing) * 50);
   }
+  .h-58 {
+    height: calc(var(--spacing) * 58);
+  }
   .h-64 {
     height: calc(var(--spacing) * 64);
   }
@@ -968,8 +971,14 @@
   .h-80 {
     height: calc(var(--spacing) * 80);
   }
+  .h-90 {
+    height: calc(var(--spacing) * 90);
+  }
   .h-96 {
     height: calc(var(--spacing) * 96);
+  }
+  .h-100 {
+    height: calc(var(--spacing) * 100);
   }
   .h-160 {
     height: calc(var(--spacing) * 160);
@@ -979,6 +988,9 @@
   }
   .h-256 {
     height: calc(var(--spacing) * 256);
+  }
+  .h-auto {
+    height: auto;
   }
   .h-full {
     height: 100%;
@@ -1025,8 +1037,14 @@
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
+  .w-90 {
+    width: calc(var(--spacing) * 90);
+  }
   .w-96 {
     width: calc(var(--spacing) * 96);
+  }
+  .w-100 {
+    width: calc(var(--spacing) * 100);
   }
   .w-200 {
     width: calc(var(--spacing) * 200);
@@ -1362,6 +1380,10 @@
   .border-b-2 {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
+  }
+  .border-b-3 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 3px;
   }
   .border-\[\#3D8B37\] {
     border-color: #3D8B37;
@@ -1785,6 +1807,14 @@
   .text-sm\/6 {
     font-size: var(--text-sm);
     line-height: calc(var(--spacing) * 6);
+  }
+  .text-sm\/7 {
+    font-size: var(--text-sm);
+    line-height: calc(var(--spacing) * 7);
+  }
+  .text-sm\/8 {
+    font-size: var(--text-sm);
+    line-height: calc(var(--spacing) * 8);
   }
   .text-xl {
     font-size: var(--text-xl);
