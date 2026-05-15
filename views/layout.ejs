@@ -5,11 +5,11 @@
   </head>
   <body class="h-full bg-gradient-to-b from-gray-50 to-white antialiased">
 
-    <div class="grid min-h-full grid-rows-[auto_1fr_auto]">
+    <div class="flex flex-col min-h-screen">
 
       <%- include('partials/header') %>
 
-      <%- body %>
+      <main class="flex-grow"><%- body %></main>
 
       <%- include('partials/footer') %>
 
