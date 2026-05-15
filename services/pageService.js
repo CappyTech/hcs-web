@@ -88,6 +88,18 @@ async function getAboutViewModel() {
   };
 }
 
+async function getStudiesViewModel() {
+  return {
+    ...getBaseViewModel(),
+    canonicalUrl: `${BASE_URL}/studies`,
+    page: {
+      title: 'Studies',
+      activeNav: '/studies',
+      description: 'Explore our case studies and successful projects.',
+    },
+  };
+}
+
 async function getContactViewModel() {
   return {
     ...getBaseViewModel(),
@@ -155,6 +167,7 @@ module.exports = {
   getBaseViewModel,
   getHomeViewModel,
   getAboutViewModel,
+  getStudiesViewModel,
   getContactViewModel,
   submitContactForm,
   get404ViewModel,
@@ -172,6 +185,7 @@ module.exports = {
 const PAGES = [
   { path: '/',         priority: '1.0', changefreq: 'weekly'  },
   { path: '/about',    priority: '0.8', changefreq: 'monthly' },
+  { path: '/studies',  priority: '0.8', changefreq: 'monthly' },
   { path: '/contact',  priority: '0.7', changefreq: 'monthly' },
   { path: '/services', priority: '0.8', changefreq: 'monthly' },
   { path: '/blog',     priority: '0.7', changefreq: 'weekly'  },
