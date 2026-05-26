@@ -1421,6 +1421,9 @@
   .bg-gray-300 {
     background-color: var(--color-gray-300);
   }
+  .bg-gray-700 {
+    background-color: var(--color-gray-700);
+  }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
   }
@@ -2150,17 +2153,17 @@
       }
     }
   }
+  .hover\:bg-primary {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-primary);
+      }
+    }
+  }
   .hover\:text-\[\#8B2332\] {
     &:hover {
       @media (hover: hover) {
         color: #8B2332;
-      }
-    }
-  }
-  .hover\:text-accent {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-accent);
       }
     }
   }
