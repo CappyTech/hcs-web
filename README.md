@@ -66,3 +66,12 @@ Open:
 - `services/` provides data/business logic for views
 - `views/` contains EJS templates (pages + partials)
 - `public/` contains static CSS/JS
+
+# Accreditations
+
+Safe Contractor
+- 2021 - 2026
+
+CHAS
+- 2019 - 2020
+
