@@ -1238,6 +1238,9 @@
   .justify-end {
     justify-content: flex-end;
   }
+  .justify-start {
+    justify-content: flex-start;
+  }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
   }
@@ -3080,6 +3083,21 @@
   .lg\:h-auto {
     @media (width >= 64rem) {
       height: auto;
+    }
+  }
+  .lg\:max-h-12 {
+    @media (width >= 64rem) {
+      max-height: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:max-h-30 {
+    @media (width >= 64rem) {
+      max-height: calc(var(--spacing) * 30);
+    }
+  }
+  .lg\:max-h-200 {
+    @media (width >= 64rem) {
+      max-height: calc(var(--spacing) * 200);
     }
   }
   .lg\:w-1\/2 {
