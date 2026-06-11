@@ -17,16 +17,14 @@ router.get('/', pageController.home);
 router.get('/about', pageController.about);
 router.get('/studies', pageController.studies);
 router.get('/contact', pageController.contactGet);
+router.get('/servicesbycategory', pageController.servicesByCategory);
 
 // App info
 router.get('/version', pageController.version);
-
 // Sitemap
 router.get('/sitemap.xml', pageController.sitemap);
-
 // Robots
 router.get('/robots.txt', pageController.robots);
-
 // Forms
 router.post('/contact', pageController.contactPost);
 

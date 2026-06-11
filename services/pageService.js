@@ -100,6 +100,22 @@ async function getStudiesViewModel() {
   };
 }
 
+async function getServicesByCategoryViewModel() {
+  return {
+    ...getBaseViewModel(),
+    canonicalUrl: `${BASE_URL}/servicesbycategory`,
+    page: {
+      title: 'Services',
+      activeNav: '/services',
+      description: 'Browse our construction services by category.',
+    },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Contact
+// ---------------------------------------------------------------------------
+
 async function getContactViewModel() {
   return {
     ...getBaseViewModel(),
@@ -138,6 +154,10 @@ async function submitContactForm({ name, email, message }) {
   return;
 }
 
+// ---------------------------------------------------------------------------
+// 404 and Error pages
+// ---------------------------------------------------------------------------
+
 async function get404ViewModel({ path = '' } = {}) {
   return {
     ...getBaseViewModel(),
@@ -162,19 +182,6 @@ async function getErrorViewModel({ statusCode = 500, message = 'Unknown error' }
     message,
   };
 }
-
-module.exports = {
-  getBaseViewModel,
-  getHomeViewModel,
-  getAboutViewModel,
-  getStudiesViewModel,
-  getContactViewModel,
-  submitContactForm,
-  get404ViewModel,
-  getErrorViewModel,
-  getSitemapEntries,
-  getRobotsContent,
-};
 
 // ---------------------------------------------------------------------------
 // SEO utilities
@@ -208,3 +215,17 @@ function getRobotsContent() {
     `Sitemap: ${BASE_URL}/sitemap.xml`,
   ].join('\n');
 }
+
+module.exports = {
+  getBaseViewModel,
+  getHomeViewModel,
+  getAboutViewModel,
+  getStudiesViewModel,
+  getContactViewModel,
+  submitContactForm,
+  get404ViewModel,
+  getErrorViewModel,
+  getSitemapEntries,
+  getRobotsContent,
+  getServicesByCategoryViewModel
+};

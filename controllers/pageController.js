@@ -42,6 +42,15 @@ async function studies(req, res, next) {
   }
 }
 
+async function servicesByCategory(req, res, next) {
+  try {
+    const viewModel = await pageService.getServicesByCategoryViewModel();
+    return res.render('pages/services by category/browse', viewModel);
+  } catch (err) {
+    return next(err);
+  }
+}
+
 async function contactGet(req, res, next) {
   try {
     const viewModel = await pageService.getContactViewModel();
@@ -136,4 +145,5 @@ module.exports = {
   version,
   sitemap,
   robots,
+  servicesByCategory,
 };

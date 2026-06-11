@@ -11,10 +11,6 @@
 const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-
-const indexRoutes = require('./routes');
-const contentRoutes = require('./routes/contentRoutes');
-const blogRoutes = require('./routes/blogRoutes');
 const appInfoService = require('./services/appInfoService');
 const { notFound } = require('./middleware/notFound');
 const { errorHandler } = require('./middleware/errorHandler');
@@ -44,10 +40,15 @@ function createApp() {
   // Parse JSON request bodies (useful if you later add fetch/AJAX APIs).
   app.use(express.json());
 
+  const pageRoutes = require('./routes/pageRoutes');
+  const contentRoutes = require('./routes/contentRoutes');
+  const blogRoutes = require('./routes/blogRoutes');
+  const serviceRoutes = require('./routes/serviceRoutes');
   // ----- Routes -----
-  app.use('/', indexRoutes);
+  app.use('/', pageRoutes);
   app.use('/', contentRoutes);
   app.use('/', blogRoutes);
+  app.use('/', serviceRoutes);
 
   // ----- 404 + Error handling -----
   app.use(notFound);
