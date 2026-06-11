@@ -100,18 +100,6 @@ async function getStudiesViewModel() {
   };
 }
 
-async function getServicesByCategoryViewModel() {
-  return {
-    ...getBaseViewModel(),
-    canonicalUrl: `${BASE_URL}/servicesbycategory`,
-    page: {
-      title: 'Services',
-      activeNav: '/services',
-      description: 'Browse our construction services by category.',
-    },
-  };
-}
-
 // ---------------------------------------------------------------------------
 // Contact
 // ---------------------------------------------------------------------------
@@ -227,5 +215,4 @@ module.exports = {
   getErrorViewModel,
   getSitemapEntries,
   getRobotsContent,
-  getServicesByCategoryViewModel
 };
