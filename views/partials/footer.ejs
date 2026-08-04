@@ -10,7 +10,7 @@
           
           <div class="col-span-2 sm:col-span-2 md:col-span-1 space-y-6 sm:space-y-8">
             <img src="/images/HCS-Logo-v5.png" alt="<%= site.name %>" class="h-24 sm:h-32 lg:h-40 w-auto" />
-            <p class="text-xs sm:text-sm text-balance text-gray-600">Making the world a better place through constructing elegant hierarchies.</p>
+            <p class="text-xs sm:text-sm text-balance text-gray-600">Trusted external works specialists across Liverpool, Knowsley and Merseyside.</p>
             <div class="flex gap-x-4 sm:gap-x-6">
               <a href="<%= site.facebookHandle %>" class="text-gray-600 hover:text-gray-800 transition">
                 <span class="sr-only">Facebook</span>
@@ -31,22 +31,35 @@
                 </svg>
               </a>
             </div>
+            <address class="not-italic text-xs sm:text-sm text-gray-600 space-y-1">
+              <p class="font-semibold text-gray-800"><%= site.name %></p>
+              <p>
+                <%= site.liverpool.address.line1 %>, <%= site.liverpool.address.line2 %>,<br />
+                <%= site.liverpool.address.line3 %>, <%= site.liverpool.address.line4 %>, <%= site.liverpool.address.postcode %>
+              </p>
+              <p>
+                <a href="tel:<%= site.liverpool.phone.replace(/\s+/g, '') %>" class="hover:text-gray-800 transition"><%= site.liverpool.phone %></a>
+              </p>
+              <p>
+                <a href="mailto:<%= site.email %>" class="hover:text-gray-800 transition"><%= site.email %></a>
+              </p>
+            </address>
           </div>
 
           <div>
             <h3 class="text-sm font-bold text-[#8B2332] border-b-3 border-[#3D8B37] pb-2 inline-block">Services</h3>
             <ul role="list" class="mt-4 space-y-2">
               <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Fences</a>
+                <a href="/fences" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Fences</a>
               </li>
               <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Line Marking</a>
+                <a href="/line-marking" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Line Marking</a>
               </li>
               <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Paving</a>
+                <a href="/paving" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Paving</a>
               </li>
               <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Tarmac</a>
+                <a href="/tarmac" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Tarmac</a>
               </li>
             </ul>
           </div>
@@ -63,9 +76,6 @@
               <li>
                 <a href="/services" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Services</a>
               </li>
-              <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Socials</a>
-              </li>
             </ul>
           </div>
 
@@ -76,16 +86,11 @@
                 <a href="/contact" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Support</a>
               </li>
               <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Terms</a>
-              </li>
-              <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Privacy</a>
-              </li>
-              <li>
-                <a href="#" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">License</a>
+                <a href="/privacy" class="text-xs sm:text-sm text-[#8B2332] border-b-2 border-gray-100 pb-1 inline-block hover:text-[#8B2332] hover:border-[#3D8B37] transition">Privacy</a>
               </li>
             </ul>
           </div>
+
 
         </div>
         <div class="mt-12 sm:mt-16 border-t border-gray-900/10 pt-8">
