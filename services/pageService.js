@@ -11,55 +11,22 @@
  */
 
 const appInfoService = require('./appInfoService');
+const { getFooterServices } = require('./servicesData');
+const { getSite, getOffices } = require('./siteData');
 
 const BASE_URL = process.env.BASE_URL || 'https://heroncs.co.uk';
 
 function getBaseViewModel() {
   const appInfo = appInfoService.getAppInfo();
+  const site = getSite();
+  const offices = getOffices(site);
+
   return {
-    site: {
-      name: 'Heron Constructive Solutions LTD',
-      url: BASE_URL,
-      email: 'info@heroncs.co.uk',
-      // Localisation
-      locale: 'en_GB',
-      // Mobile / PWA
-      themeColor: '#ffffff',
-      // SEO
-      robots: 'index, follow',
-      // Branding
-      startYear: parseInt(process.env.START_YEAR, 10) || 2025,
-      // Social
-      ogType: 'website',
-      ogImage: `${BASE_URL}/images/og-image.png`,
-      twitterCard: 'summary_large_image',
-      twitterHandle: process.env.TWITTER_HANDLE || '',
-      instagramHandle: process.env.INSTAGRAM_HANDLE || '',
-      facebookHandle: process.env.FACEBOOK_HANDLE || '',
-      linkedinHandle: process.env.LINKEDIN_HANDLE || '',
-      facebookAppId: process.env.FACEBOOK_APP_ID || '',
-      pinterest: 'nopin',
-      liverpool: {
-        phone: '0151 475 1217',
-        address: {
-          line1: '103 Herondale Road',
-          line2: 'Mossley Hill',
-          line3: 'Liverpool',
-          line4: 'Merseyside',
-          postcode: 'L18 1JZ',
-        },
-      },
-      cheshire: {
-        phone: '01298 333 212',
-        address: {
-          line1: '456 Kingfisher Lane',
-          line2: 'Chester Business Park',
-          line3: 'Chester',
-          line4: 'Cheshire',
-          postcode: 'CH4 9QH',
-        },
-      },
-    },
+    // Services that have their own page — used by the shared footer.
+    footerServices: getFooterServices(),
+    // Office addresses — rendered as a grid in the shared footer.
+    offices,
+    site,
     appInfo,
   };
 }
@@ -71,7 +38,7 @@ async function getHomeViewModel() {
     page: {
       title: 'Home',
       activeNav: '/',
-      description: 'Reliable construction support and solutions.',
+      description: 'External works and landscaping contractor for housing associations and councils across Liverpool, Knowsley and Merseyside — fencing, gates, paving and estate improvements.',
     },
   };
 }
@@ -83,19 +50,7 @@ async function getAboutViewModel() {
     page: {
       title: 'About',
       activeNav: '/about',
-      description: 'Learn more about our company and approach.',
-    },
-  };
-}
-
-async function getStudiesViewModel() {
-  return {
-    ...getBaseViewModel(),
-    canonicalUrl: `${BASE_URL}/studies`,
-    page: {
-      title: 'Studies',
-      activeNav: '/studies',
-      description: 'Explore our case studies and successful projects.',
+      description: 'Approved external works contractor for social housing — our accreditations, compliance and how we work on your estate across Merseyside and the North West.',
     },
   };
 }
@@ -183,7 +138,10 @@ const PAGES = [
   { path: '/studies',  priority: '0.8', changefreq: 'monthly' },
   { path: '/contact',  priority: '0.7', changefreq: 'monthly' },
   { path: '/services', priority: '0.8', changefreq: 'monthly' },
+  { path: '/accreditations', priority: '0.7', changefreq: 'monthly' },
+  { path: '/fencing',  priority: '0.7', changefreq: 'monthly' },
   { path: '/blog',     priority: '0.7', changefreq: 'weekly'  },
+  { path: '/privacy',  priority: '0.3', changefreq: 'yearly'  },
 ];
 
 function getSitemapEntries() {
@@ -208,7 +166,6 @@ module.exports = {
   getBaseViewModel,
   getHomeViewModel,
   getAboutViewModel,
-  getStudiesViewModel,
   getContactViewModel,
   submitContactForm,
   get404ViewModel,

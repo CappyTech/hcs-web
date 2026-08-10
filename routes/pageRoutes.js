@@ -15,7 +15,6 @@ const router = express.Router();
 // Pages
 router.get('/', pageController.home);
 router.get('/about', pageController.about);
-router.get('/studies', pageController.studies);
 router.get('/contact', pageController.contactGet);
 
 // App info

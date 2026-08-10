@@ -1,0 +1,46 @@
+<div class="mx-auto w-full max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
+
+  <div class="max-w-3xl">
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-pretty text-gray-900">Case studies</h1>
+    <p class="mt-6 text-base sm:text-lg font-medium text-pretty text-gray-500 leading-relaxed">Real projects for housing associations and councils across Merseyside &mdash; shown as before-and-after, with the location and scope for each. This is evidence, not advertising.</p>
+  </div>
+
+  <% if (studies.length === 0) { %>
+    <p class="mt-12 text-sm text-gray-400">No case studies yet &mdash; check back soon.</p>
+  <% } else { %>
+    <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <% studies.forEach(function(study) { %>
+        <article class="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-900/5 transition hover:shadow-md">
+          <% if (study.cardImage) { %>
+            <img src="<%= study.cardImage %>" alt="<%= study.cardImageAlt %>" class="h-52 w-full object-cover" />
+          <% } else { %>
+            <div class="flex h-52 w-full items-center justify-center bg-[#FFFAF3] px-6 text-center">
+              <span class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Social value</span>
+            </div>
+          <% } %>
+          <div class="flex flex-1 flex-col p-6">
+            <% if (study.location) { %>
+              <p class="text-xs font-medium uppercase tracking-wide text-gray-500"><%= study.location %></p>
+            <% } %>
+            <h2 class="mt-1 text-lg font-semibold text-gray-900 group-hover:text-primary">
+              <a href="/studies/<%= study.slug %>"><span class="absolute inset-0"></span><%= study.title %></a>
+            </h2>
+            <p class="mt-2 flex-1 text-sm leading-6 text-gray-600"><%= study.excerpt %></p>
+            <span class="mt-4 text-sm font-semibold text-primary">View case study <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  <% } %>
+
+  <!-- CTA -->
+  <div class="mt-20 rounded-2xl bg-gray-50 px-6 py-12 text-center sm:py-16">
+    <h2 class="text-2xl font-semibold tracking-tight text-balance text-gray-900 sm:text-3xl">Planning works on your estate?</h2>
+    <p class="mx-auto mt-4 max-w-xl text-base/7 text-pretty text-gray-600">We'll survey the site and give you a clear, honest proposal.</p>
+    <div class="mt-8 flex items-center justify-center gap-x-6">
+      <a href="/contact" class="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Request a quote</a>
+      <a href="/services" class="text-sm/6 font-semibold text-gray-900">View our services <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+</div>

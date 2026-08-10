@@ -44,11 +44,13 @@ function createApp() {
   const contentRoutes = require('./routes/contentRoutes');
   const blogRoutes = require('./routes/blogRoutes');
   const serviceRoutes = require('./routes/serviceRoutes');
+  const caseStudyRoutes = require('./routes/caseStudyRoutes');
   // ----- Routes -----
   app.use('/', pageRoutes);
   app.use('/', contentRoutes);
   app.use('/', blogRoutes);
   app.use('/', serviceRoutes);
+  app.use('/', caseStudyRoutes);
 
   // ----- 404 + Error handling -----
   app.use(notFound);

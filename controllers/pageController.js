@@ -33,15 +33,6 @@ async function about(req, res, next) {
   }
 }
 
-async function studies(req, res, next) {
-  try {
-    const viewModel = await pageService.getStudiesViewModel();
-    return res.render('pages/studies', viewModel);
-  } catch (err) {
-    return next(err);
-  }
-}
-
 async function contactGet(req, res, next) {
   try {
     const viewModel = await pageService.getContactViewModel();
@@ -130,7 +121,6 @@ function robots(req, res, next) {
 module.exports = {
   home,
   about,
-  studies,
   contactGet,
   contactPost,
   version,
