@@ -1,39 +1,15 @@
 /**
  * services/blogService.js
  *
- * View models and data for the blog.
- * Posts are currently stored in-memory as plain objects.
- * Later you can swap getPosts() to fetch from a DB, CMS, or markdown files
- * without changing any controller or view code.
+ * View models for the blog. Post content lives in blogData.js so it can be
+ * swapped for a DB/CMS later without changing this service, the controller,
+ * or the views.
  */
 
 const { getBaseViewModel } = require('./pageService');
+const { getPosts, getPostBySlug } = require('./blogData');
 
 const BASE_URL = process.env.BASE_URL || 'https://heroncs.co.uk';
-
-// ---------------------------------------------------------------------------
-// Data source — replace with DB/CMS calls when ready.
-// ---------------------------------------------------------------------------
-
-const POSTS = [
-  {
-    slug: 'welcome-to-hcs',
-    title: 'Welcome to Heron Constructive Solutions',
-    excerpt: 'An introduction to who we are and what we do.',
-    content: '<p>Welcome to Heron Constructive Solutions LTD. We provide reliable construction support across Liverpool and Cheshire.</p>',
-    author: 'HCS Team',
-    publishedAt: '2026-03-05',
-    tags: ['news', 'company'],
-  },
-];
-
-function getPosts() {
-  return POSTS;
-}
-
-function getPostBySlug(slug) {
-  return POSTS.find((p) => p.slug === slug) || null;
-}
 
 // ---------------------------------------------------------------------------
 // View models

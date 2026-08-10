@@ -13,6 +13,15 @@ async function services(req, res, next) {
   }
 }
 
+async function accreditations(req, res, next) {
+  try {
+    const viewModel = await contentService.getAccreditationsViewModel();
+    return res.render('pages/content/accreditations', viewModel);
+  } catch (err) {
+    return next(err);
+  }
+}
+
 async function privacy(req, res, next) {
   try {
     const viewModel = await contentService.getPrivacyViewModel();
@@ -22,4 +31,4 @@ async function privacy(req, res, next) {
   }
 }
 
-module.exports = { services, privacy };
+module.exports = { services, accreditations, privacy };

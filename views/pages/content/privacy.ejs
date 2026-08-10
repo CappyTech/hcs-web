@@ -10,7 +10,11 @@
     <section>
       <h2 class="text-base font-semibold text-brand-charcoal">1. Who we are</h2>
       <p class="mt-2">
-        <%= site.name %>, registered in England and Wales. You can contact us at
+        <%= site.name %> is a company registered in <%= site.registrationCountry %>
+        (company number <%= site.companyNumber %>). Registered office:
+        <%= site.liverpool.address.line1 %>, <%= site.liverpool.address.line2 %>,
+        <%= site.liverpool.address.line3 %>, <%= site.liverpool.address.postcode %>.
+        You can contact us at
         <a
           class="text-brand-maroon hover:underline"
           href="mailto:<%= site.email %>"

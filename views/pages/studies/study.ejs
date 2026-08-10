@@ -1,0 +1,87 @@
+<div class="mx-auto w-full max-w-5xl px-6 py-12 sm:py-16 lg:px-8">
+
+  <a class="text-sm font-medium text-primary hover:underline" href="/studies">&larr; Back to case studies</a>
+
+  <article class="mt-6">
+    <header>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-pretty text-gray-900"><%= study.title %></h1>
+
+      <!-- Header facts: client (if confirmed) + location + scope -->
+      <dl class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <% if (study.client) { %>
+          <div class="border-l-2 border-accent pl-4">
+            <dt class="text-sm font-medium text-gray-500">Client</dt>
+            <dd class="mt-1 text-base font-semibold text-gray-900"><%= study.client %></dd>
+          </div>
+        <% } %>
+        <% if (study.location) { %>
+          <div class="border-l-2 border-accent pl-4">
+            <dt class="text-sm font-medium text-gray-500">Location</dt>
+            <dd class="mt-1 text-base font-semibold text-gray-900"><%= study.location %></dd>
+          </div>
+        <% } %>
+        <% if (study.scope) { %>
+          <div class="border-l-2 border-accent pl-4">
+            <dt class="text-sm font-medium text-gray-500">Scope</dt>
+            <dd class="mt-1 text-base font-semibold text-gray-900"><%= study.scope %></dd>
+          </div>
+        <% } %>
+      </dl>
+    </header>
+
+    <!-- Before / after — the headline of the study -->
+    <% if (study.before && study.after) { %>
+      <section aria-labelledby="before-after-heading" class="mt-12">
+        <h2 id="before-after-heading" class="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">Before &amp; after</h2>
+        <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <figure class="relative">
+            <span class="absolute left-3 top-3 z-10 rounded-full bg-gray-900/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">Before</span>
+            <img src="<%= study.before.image %>" alt="<%= study.before.alt %>" class="aspect-3/2 w-full rounded-2xl object-cover shadow-md ring-1 ring-gray-900/5" />
+            <figcaption class="mt-3 text-sm text-gray-600"><%= study.before.caption %></figcaption>
+          </figure>
+          <figure class="relative">
+            <span class="absolute left-3 top-3 z-10 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">After</span>
+            <img src="<%= study.after.image %>" alt="<%= study.after.alt %>" class="aspect-3/2 w-full rounded-2xl object-cover shadow-md ring-1 ring-gray-900/5" />
+            <figcaption class="mt-3 text-sm text-gray-600"><%= study.after.caption %></figcaption>
+          </figure>
+        </div>
+      </section>
+    <% } %>
+
+    <!-- Narrative content (optional) -->
+    <% if (study.content) { %>
+      <div class="mt-10 prose prose-gray max-w-none text-gray-600">
+        <%- study.content %>
+      </div>
+    <% } %>
+
+    <!-- In-progress gallery (optional, secondary to the before/after above) -->
+    <% if (study.gallery && study.gallery.length) { %>
+      <div class="mt-10 border-t border-gray-900/10 pt-8">
+        <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">During the works</h3>
+        <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <% study.gallery.forEach(function(g) { %>
+            <img src="<%= g.image %>" alt="<%= g.alt %>" class="aspect-3/2 w-full rounded-lg object-cover ring-1 ring-gray-900/5" />
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+    <!-- Social value (optional) -->
+    <% if (study.socialValue) { %>
+      <div class="mt-10 rounded-2xl bg-[#FFFAF3] p-6 sm:p-8">
+        <h2 class="text-lg font-semibold text-gray-900">Social value</h2>
+        <div class="mt-2 text-base/7 text-gray-600"><%- study.socialValue %></div>
+      </div>
+    <% } %>
+  </article>
+
+  <!-- CTA -->
+  <div class="mt-16 border-t border-gray-900/10 pt-10">
+    <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-lg font-semibold text-gray-900">Planning similar works on your estate?</p>
+      <a href="/contact" class="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Request a quote</a>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,66 @@
+<div class="bg-white">
+
+  <!-- Hero -->
+  <div class="mx-auto max-w-7xl px-6 pt-12 pb-8 sm:pt-20 sm:pb-12 lg:px-8">
+    <div class="max-w-3xl">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-pretty text-gray-900">Accreditations &amp; compliance</h1>
+      <p class="mt-6 text-base sm:text-lg font-medium text-pretty text-gray-500 leading-relaxed">The first thing procurement teams look for. Heron Constructive Solutions holds the accreditations below and works to recognised health &amp; safety and quality standards on every contract.</p>
+    </div>
+  </div>
+
+  <!-- Accreditation cards (data-driven) -->
+  <div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <% accreditations.forEach(function(item) { %>
+        <div class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-900/5">
+          <div class="flex h-20 items-center">
+            <img src="<%= item.logo %>" alt="<%= item.alt %>" class="max-h-16 w-auto object-contain" />
+          </div>
+          <h2 class="mt-4 text-lg font-semibold text-gray-900"><%= item.name %></h2>
+          <p class="mt-1 flex-1 text-sm leading-6 text-gray-600"><%- item.description %></p>
+          <% if (item.membershipNumber) { %>
+            <p class="mt-3 text-sm text-gray-500">Membership no. <span class="font-medium text-gray-700"><%= item.membershipNumber %></span></p>
+          <% } %>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- Insurance & compliance -->
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">Insurance &amp; standards</h2>
+      <p class="mt-6 text-lg/8 text-gray-700">Health &amp; safety, safe systems of work and full insurance cover are built into how we operate on every contract.</p>
+    </div>
+    <!-- [TO SUPPLY] Insurance cover levels (public / employer's / professional
+         liability), certificate references and any additional standards (e.g. SMAS,
+         ISO). Add them here as a short definition list once confirmed. -->
+    <dl class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <div class="border-l-2 border-accent pl-4">
+        <dt class="text-sm font-medium text-gray-500">Public liability</dt>
+        <dd class="mt-1 text-base font-semibold text-gray-900">[TO SUPPLY]</dd>
+      </div>
+      <div class="border-l-2 border-accent pl-4">
+        <dt class="text-sm font-medium text-gray-500">Employer's liability</dt>
+        <dd class="mt-1 text-base font-semibold text-gray-900">[TO SUPPLY]</dd>
+      </div>
+      <div class="border-l-2 border-accent pl-4">
+        <dt class="text-sm font-medium text-gray-500">Health &amp; safety</dt>
+        <dd class="mt-1 text-base font-semibold text-gray-900">Safe systems of work on every site</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- CTA -->
+  <div class="bg-gray-50">
+    <div class="mx-auto max-w-7xl px-6 py-16 text-center sm:py-20 lg:px-8">
+      <h2 class="text-2xl font-semibold tracking-tight text-balance text-gray-900 sm:text-3xl">Need our documentation for a tender?</h2>
+      <p class="mx-auto mt-4 max-w-xl text-base/7 text-pretty text-gray-600">Get in touch and we'll send over our current certificates and insurance details.</p>
+      <div class="mt-8 flex items-center justify-center gap-x-6">
+        <a href="/contact" class="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Request documentation</a>
+        <a href="/about" class="text-sm/6 font-semibold text-gray-900">About us <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
