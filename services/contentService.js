@@ -6,6 +6,8 @@
  */
 
 const { getBaseViewModel } = require('./pageService');
+const { getServices } = require('./serviceService');
+const { getAccreditations } = require('./accreditationsData');
 
 const BASE_URL = process.env.BASE_URL || 'https://heroncs.co.uk';
 
@@ -16,8 +18,23 @@ async function getServicesViewModel() {
     page: {
       title: 'Services',
       activeNav: '/services',
-      description: 'Explore the construction support and solutions offered by Heron Constructive Solutions LTD.',
+      description: 'External works services for housing associations and councils — fencing and gates, paving and paths, tarmac and line marking across Merseyside and the North West.',
     },
+    services: getServices(),
+  };
+}
+
+async function getAccreditationsViewModel() {
+  return {
+    ...getBaseViewModel(),
+    canonicalUrl: `${BASE_URL}/accreditations`,
+    page: {
+      title: 'Accreditations',
+      activeNav: '/accreditations',
+      description:
+        'Our accreditations and compliance — Constructionline, CHAS, SafeContractor, CITB and Living Wage employer. The first thing procurement teams look for.',
+    },
+    accreditations: getAccreditations(),
   };
 }
 
@@ -35,5 +52,6 @@ async function getPrivacyViewModel() {
 
 module.exports = {
   getServicesViewModel,
+  getAccreditationsViewModel,
   getPrivacyViewModel,
 };
