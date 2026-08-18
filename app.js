@@ -34,6 +34,10 @@ function createApp() {
   // Example: public/css/styles.css becomes /css/styles.css in the browser.
   app.use(express.static(path.join(__dirname, 'public')));
 
+  // Serve Tailwind Plus Elements (npm package) — powers <el-dialog> modals.
+  // Example: /vendor/elements/index.js in the browser.
+  app.use('/vendor/elements', express.static(path.join(__dirname, 'node_modules', '@tailwindplus', 'elements', 'dist')));
+
   // Parse URL-encoded form submissions (like HTML <form method="POST">).
   app.use(express.urlencoded({ extended: false }));
 

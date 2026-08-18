@@ -11,6 +11,7 @@
     "dev-old": "concurrently \"npm run css:watch\" \"nodemon server.js\""
   },
   "dependencies": {
+    "@tailwindplus/elements": "^1.0.22",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
