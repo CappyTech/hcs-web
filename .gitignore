@@ -6,3 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 /public/css/styles.css
 public/css/styles.css
+
+# Written at runtime by services/contentCache.js — the mirror of hcs-app's
+# content and the images pulled with it. The app root is also the git working
+# tree on the server, and a dirty tree breaks the next deploy pull.
+data/
+public/images/managed/

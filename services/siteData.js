@@ -7,9 +7,21 @@
  * circular requires.
  */
 
+const contentCache = require('./contentCache');
+
 const BASE_URL = process.env.BASE_URL || 'https://heroncs.co.uk';
 
-function getSite() {
+/**
+ * The values below are the **seed**: what the site shows before it has ever
+ * pulled from hcs-app, and what it falls back to if it never can. getSite()
+ * layers the cached settings on top, key by key, so a field the CMS does not
+ * carry keeps the value here rather than becoming blank.
+ *
+ * That merge direction matters: this object drives every page's <head> and the
+ * shared footer, so a partial payload must degrade to the defaults, never to an
+ * empty company name or a missing company number.
+ */
+function seedSite() {
   return {
     name: 'Heron Constructive Solutions LTD',
     url: BASE_URL,
@@ -86,9 +98,41 @@ function getSite() {
   };
 }
 
+/**
+ * Site identity: the seed, with anything hcs-app publishes layered over it.
+ *
+ * ogImage arrives as a media uuid and is resolved to an absolute URL here —
+ * og:image is read by other people's servers, so a relative path is useless.
+ * An image that has not been mirrored yet resolves to '', which makes head.ejs
+ * omit the tag rather than advertise a 404.
+ */
+function getSite() {
+  const seed = seedSite();
+  const cached = contentCache.get('site');
+  if (!cached) return seed;
+
+  const merged = { ...seed };
+  for (const [key, value] of Object.entries(cached)) {
+    if (value === null || value === undefined || value === '') continue;
+    if (Array.isArray(value) && value.length === 0) continue;
+    merged[key] = value;
+  }
+
+  const ogPath = cached.ogImage ? contentCache.imageUrl({ media: cached.ogImage }) : null;
+  merged.ogImage = ogPath ? `${BASE_URL}${ogPath}` : '';
+
+  return merged;
+}
+
 // Office addresses rendered as a data-driven grid in the footer.
-// Add another office to getSite() and list it here and it appears automatically.
+//
+// The published settings carry an ordered `offices` array, which is what lets
+// an office be added or removed without a code change. The three named keys
+// below are the seed's shape and remain the fallback.
 function getOffices(site = getSite()) {
+  if (Array.isArray(site.offices) && site.offices.length) {
+    return site.offices.map((o) => ({ label: o.label, phone: o.phone, address: o.address }));
+  }
   return [
     { label: 'Liverpool office', phone: site.liverpool.phone, address: site.liverpool.address },
     { label: 'Cheshire office', phone: site.cheshire.phone, address: site.cheshire.address },

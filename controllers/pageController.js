@@ -13,6 +13,7 @@
  */
 
 const pageService = require('../services/pageService');
+const contentCache = require('../services/contentCache');
 const appInfoService = require('../services/appInfoService');
 
 async function home(req, res, next) {
@@ -76,7 +77,10 @@ async function contactPost(req, res, next) {
 function version(req, res, next) {
   try {
     const appInfo = appInfoService.getAppInfo();
-    return res.set('Cache-Control', 'no-store').json(appInfo);
+    // Which of the three content levels answered, and how stale it is. There is
+    // no CI and no monitoring on this app, so this endpoint is the only place a
+    // site quietly serving a month-old mirror would show up.
+    return res.set('Cache-Control', 'no-store').json({ ...appInfo, content: contentCache.status() });
   } catch (err) {
     return next(err);
   }

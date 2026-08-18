@@ -1,10 +1,14 @@
 /**
  * services/blogData.js
  *
- * Single source of truth for blog content. Kept dependency-free so it can be
- * imported anywhere without circular requires. Swap these in-memory posts for a
- * DB/CMS later without touching the controller or views.
+ * Blog content. Posts are authored in hcs-app and pulled by contentCache; the
+ * array below is the **seed**, used when there is no cached copy at all — a
+ * fresh checkout, or a first boot with hcs-app unreachable.
+ *
+ * It is deliberately not deleted now that the CMS exists. It is the floor the
+ * site falls back to, and the only content guaranteed to be present.
  */
+const contentCache = require('./contentCache');
 
 const POSTS = [
   {
@@ -19,12 +23,23 @@ const POSTS = [
   },
 ];
 
+/** Cached shape → the shape the views already read. */
+function fromCache(post) {
+  return {
+    ...post,
+    // The views render this string straight into <time> and as the visible
+    // date; the API sends an ISO timestamp.
+    publishedAt: post.publishedAt ? String(post.publishedAt).slice(0, 10) : '',
+  };
+}
+
 function getPosts() {
-  return POSTS;
+  const cached = contentCache.get('posts');
+  return cached ? cached.map(fromCache) : POSTS;
 }
 
 function getPostBySlug(slug) {
-  return POSTS.find((p) => p.slug === slug) || null;
+  return getPosts().find((p) => p.slug === slug) || null;
 }
 
 module.exports = {

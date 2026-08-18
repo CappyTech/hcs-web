@@ -1,9 +1,12 @@
 /**
  * services/caseStudyData.js
  *
- * Single source of truth for case-study content. Kept dependency-free so it can
- * be imported anywhere without circular requires. Swap this in-memory array for
- * a DB/CMS later without touching the service, controller, or views.
+ * Case-study content. Studies are authored in hcs-app and pulled by
+ * contentCache; the array below is the **seed**, used when there is no cached
+ * copy at all — a fresh checkout, or a first boot with hcs-app unreachable.
+ *
+ * Deliberately kept rather than deleted now that the CMS exists: it is the
+ * floor the site falls back to.
  *
  * Each study follows the brief's project-story format:
  *   header (location + scope) → before photo + problem → after photo + result
@@ -12,6 +15,8 @@
  * Missing real facts are left empty and clearly marked [TO SUPPLY]; never invent
  * a client, location, stat or quote.
  */
+
+const contentCache = require('./contentCache');
 
 const STUDIES = [
   {
@@ -68,12 +73,46 @@ const STUDIES = [
   },
 ];
 
+/**
+ * Cached shape → the shape the views already read.
+ *
+ * The API sends { media: <uuid>, alt } references rather than URLs, because the
+ * images are mirrored locally and served from this host — a URL minted in
+ * hcs-app would tie every page view to that host being reachable, which is the
+ * one thing this design exists to avoid. contentCache.imageUrl resolves the
+ * uuid against the local mirror, and returns null for an image that has not
+ * been downloaded, so the views fall back to their no-photograph layout rather
+ * than rendering a broken image.
+ */
+function fromCache(study) {
+  const panel = (p) => {
+    if (!p) return null;
+    const image = contentCache.imageUrl(p);
+    return image ? { image, alt: p.alt || '', caption: p.caption || '' } : null;
+  };
+  const cardImage = contentCache.imageUrl(study.card);
+  return {
+    ...study,
+    cardImage,
+    cardImageAlt: (study.card && study.card.alt) || '',
+    before: panel(study.before),
+    after: panel(study.after),
+    gallery: (study.gallery || [])
+      .map((g) => {
+        const image = contentCache.imageUrl(g);
+        return image ? { image, alt: g.alt || '', caption: g.caption || '' } : null;
+      })
+      .filter(Boolean),
+  };
+}
+
 function getStudies() {
-  return STUDIES;
+  const cached = contentCache.get('studies');
+  return cached ? cached.map(fromCache) : STUDIES;
 }
 
 function getStudyBySlug(slug) {
-  return STUDIES.find((s) => s.slug === slug) || null;
+  return getStudies().find((s) => s.slug === slug) || null;
 }
 
 module.exports = {

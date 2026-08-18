@@ -1,6 +1,6 @@
 {
   "name": "hcs-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Heron Constructive Solutions LTD Website (Express + EJS)",
   "main": "server.js",
