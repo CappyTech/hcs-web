@@ -13,6 +13,8 @@
  * [TO SUPPLY] Real photos + dedicated pages for the enquire-only services below.
  */
 
+const contentCache = require('./contentCache');
+
 const SERVICES = [
   {
     slug: 'fencing',
@@ -71,14 +73,24 @@ const SERVICES = [
   },
 ];
 
+// Cached shape → the shape the views already read (a URL string plus alt).
+function fromCache(service) {
+  return {
+    ...service,
+    image: contentCache.imageUrl(service.image),
+    imageAlt: (service.image && service.image.alt) || '',
+  };
+}
+
 // All services (for the Services hub grid).
 function getServices() {
-  return SERVICES;
+  const cached = contentCache.get('services');
+  return cached ? cached.map(fromCache) : SERVICES;
 }
 
 // A single service by slug (for dedicated service pages).
 function getServiceBySlug(slug) {
-  return SERVICES.find((s) => s.slug === slug) || null;
+  return getServices().find((s) => s.slug === slug) || null;
 }
 
 // Services listed in the footer. All services appear; each links to its own
@@ -86,7 +98,7 @@ function getServiceBySlug(slug) {
 // So as a service is "made" (its href points at a real page), the footer link
 // upgrades from the hub to that page automatically.
 function getFooterServices() {
-  return SERVICES.map((s) => ({
+  return getServices().map((s) => ({
     title: s.title,
     href: s.href && s.href !== '/contact' ? s.href : '/services',
   }));

@@ -9,6 +9,8 @@
  * teams ask for these.
  */
 
+const contentCache = require('./contentCache');
+
 const ACCREDITATIONS = [
   {
     name: 'Constructionline',
@@ -47,8 +49,18 @@ const ACCREDITATIONS = [
   },
 ];
 
+// Cached shape → the shape the views already read (a URL string plus alt).
+function fromCache(a) {
+  return {
+    ...a,
+    logo: contentCache.imageUrl(a.logo),
+    alt: (a.logo && a.logo.alt) || a.name || '',
+  };
+}
+
 function getAccreditations() {
-  return ACCREDITATIONS;
+  const cached = contentCache.get('accreditations');
+  return cached ? cached.map(fromCache) : ACCREDITATIONS;
 }
 
 module.exports = {
