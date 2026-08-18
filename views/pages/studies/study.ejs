@@ -36,13 +36,19 @@
         <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
           <figure class="relative">
             <span class="absolute left-3 top-3 z-10 rounded-full bg-gray-900/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">Before</span>
-            <img src="<%= study.before.image %>" alt="<%= study.before.alt %>" class="aspect-3/2 w-full rounded-2xl object-cover shadow-md ring-1 ring-gray-900/5" />
+            <button command="show-modal" commandfor="lightbox-before" class="group block w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="<%= study.before.image %>" alt="<%= study.before.alt %>" class="aspect-3/2 w-full rounded-2xl object-cover shadow-md ring-1 ring-gray-900/5 transition group-hover:opacity-90" />
+            </button>
             <figcaption class="mt-3 text-sm text-gray-600"><%= study.before.caption %></figcaption>
+            <%- include('../../partials/lightbox', { id: 'before', image: study.before.image, alt: study.before.alt }) %>
           </figure>
           <figure class="relative">
             <span class="absolute left-3 top-3 z-10 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">After</span>
-            <img src="<%= study.after.image %>" alt="<%= study.after.alt %>" class="aspect-3/2 w-full rounded-2xl object-cover shadow-md ring-1 ring-gray-900/5" />
+            <button command="show-modal" commandfor="lightbox-after" class="group block w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="<%= study.after.image %>" alt="<%= study.after.alt %>" class="aspect-3/2 w-full rounded-2xl object-cover shadow-md ring-1 ring-gray-900/5 transition group-hover:opacity-90" />
+            </button>
             <figcaption class="mt-3 text-sm text-gray-600"><%= study.after.caption %></figcaption>
+            <%- include('../../partials/lightbox', { id: 'after', image: study.after.image, alt: study.after.alt }) %>
           </figure>
         </div>
       </section>
@@ -60,8 +66,11 @@
       <div class="mt-10 border-t border-gray-900/10 pt-8">
         <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">During the works</h3>
         <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          <% study.gallery.forEach(function(g) { %>
-            <img src="<%= g.image %>" alt="<%= g.alt %>" class="aspect-3/2 w-full rounded-lg object-cover ring-1 ring-gray-900/5" />
+          <% study.gallery.forEach(function(g, i) { %>
+            <button command="show-modal" commandfor="lightbox-gallery-<%= i %>" class="group cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="<%= g.image %>" alt="<%= g.alt %>" class="aspect-3/2 w-full rounded-lg object-cover ring-1 ring-gray-900/5 transition group-hover:opacity-90" />
+            </button>
+            <%- include('../../partials/lightbox', { id: 'gallery-' + i, image: g.image, alt: g.alt }) %>
           <% }); %>
         </div>
       </div>
