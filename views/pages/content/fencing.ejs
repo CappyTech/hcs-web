@@ -36,25 +36,41 @@
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="flex flex-col items-center text-center">
+<<<<<<< Updated upstream
         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#dddddd] text-primary font-bold text-2xl mb-4">1</div>
+=======
+        <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#EBEBEB] text-primary font-bold text-2xl mb-4">1</div>
+>>>>>>> Stashed changes
         <h3 class="text-lg font-semibold text-gray-900 mb-2">Free Consultation</h3>
         <p class="text-gray-600">We assess your property, discuss your needs, and explore fencing options that fit your budget and style.</p>
       </div>
 
       <div class="flex flex-col items-center text-center">
+<<<<<<< Updated upstream
         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#dddddd] text-primary font-bold text-2xl mb-4">2</div>
+=======
+        <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#EBEBEB] text-primary font-bold text-2xl mb-4">2</div>
+>>>>>>> Stashed changes
         <h3 class="text-lg font-semibold text-gray-900 mb-2">Custom Design</h3>
         <p class="text-gray-600">Our experts create a tailored design with precise measurements and material selection for your space.</p>
       </div>
 
       <div class="flex flex-col items-center text-center">
+<<<<<<< Updated upstream
         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#dddddd] text-primary font-bold text-2xl mb-4">3</div>
+=======
+        <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#EBEBEB] text-primary font-bold text-2xl mb-4">3</div>
+>>>>>>> Stashed changes
         <h3 class="text-lg font-semibold text-gray-900 mb-2">Professional Installation</h3>
         <p class="text-gray-600">Our skilled team installs your fence with precision, ensuring quality workmanship and timely completion.</p>
       </div>
 
       <div class="flex flex-col items-center text-center">
+<<<<<<< Updated upstream
         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#dddddd] text-primary font-bold text-2xl mb-4">4</div>
+=======
+        <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#EBEBEB] text-primary font-bold text-2xl mb-4">4</div>
+>>>>>>> Stashed changes
         <h3 class="text-lg font-semibold text-gray-900 mb-2">Warranty & Support</h3>
         <p class="text-gray-600">We back our work with a warranty and provide ongoing maintenance guidance for long-term durability.</p>
       </div>
@@ -77,12 +93,12 @@
             <div>
               <h3>
                 <button type="button" command="--toggle" commandfor="detail-0" class="group relative flex w-full items-center justify-between py-6 text-center">
-                  <span class="text-sm font-medium not-in-aria-expanded:text-gray-900 in-aria-expanded:text-indigo-600">Fencing Features</span>
+                  <span class="text-sm font-medium not-in-aria-expanded:text-gray-900 in-aria-expanded:text-primary">Fencing Features</span>
                   <span class="ml-6 flex items-center">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-gray-400 group-hover:text-gray-500 in-aria-expanded:hidden">
                       <path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-indigo-400 not-in-aria-expanded:hidden group-hover:text-indigo-500">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-primary not-in-aria-expanded:hidden group-hover:text-primary/80">
                       <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </span>
@@ -156,20 +172,32 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const toggleButtons = document.querySelectorAll('button[command="--toggle"]');
-    
-    toggleButtons.forEach(button => {
+
+    toggleButtons.forEach(function (button) {
       const targetId = button.getAttribute('commandfor');
       const disclosure = document.getElementById(targetId);
-      
-      if (disclosure) {
-        button.addEventListener('click', function() {
-          const isHidden = disclosure.style.display === 'none' || !disclosure.style.display;
-          disclosure.style.display = isHidden ? 'block' : 'none';
-          button.setAttribute('aria-expanded', isHidden);
-        });
-      }
+
+      if (!disclosure) return;
+
+      // Start closed
+      disclosure.style.display = 'none';
+      button.setAttribute('aria-expanded', 'false');
+
+      button.addEventListener('click', function () {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+        if (isOpen) {
+          // Close
+          disclosure.style.display = 'none';
+          button.setAttribute('aria-expanded', 'false');
+        } else {
+          // Open
+          disclosure.style.display = 'block';
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
   });
 </script>
