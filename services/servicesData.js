@@ -18,7 +18,7 @@ const SERVICES = [
     slug: 'fencing',
     title: 'Fencing & gates',
     description:
-      'Boundary, security and communal fencing, plus access and pedestrian gates — supplied and installed to last.',
+      'Boundary, security and communal fencing, plus access and pedestrian gates all supplied and installed to last.',
     image: '/images/fence 1.jpeg',
     imageAlt: 'Boundary fencing installed on a housing estate',
     href: '/fencing',
